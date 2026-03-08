@@ -36,8 +36,7 @@ export const FloatingNav = ({
     }
   });
 
-  // All navigable sections including contact
-  const allItems = [...navItems, { name: "Contact", link: "#contact" }];
+  const allItems = navItems;
 
   useEffect(() => {
     const sectionIds = allItems.map((item) => item.link.replace("#", ""));
