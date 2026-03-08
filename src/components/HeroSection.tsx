@@ -6,7 +6,7 @@ import { ArrowDown, Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-bg">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden mesh-bg">
       <Scene3D />
 
       {/* Noise overlay */}
@@ -15,7 +15,8 @@ const HeroSection = () => {
         backgroundRepeat: "repeat",
       }} />
 
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      {/* Main content */}
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex-1 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -78,7 +79,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <MagneticButton
               as="a"
@@ -96,45 +97,42 @@ const HeroSection = () => {
               Get in Touch
             </MagneticButton>
           </motion.div>
+        </motion.div>
+      </div>
 
-          {/* Scroll indicator */}
+      {/* Bottom area - scroll + socials, pinned to bottom */}
+      <div className="relative z-10 pb-8 flex flex-col items-center gap-5">
+        <motion.a
+          href="#about"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <span className="text-[10px] font-display tracking-[0.2em] uppercase">Scroll</span>
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="mt-16"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
           >
-            <motion.a
-              href="#about"
-              className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <span className="text-[10px] font-display tracking-[0.2em] uppercase">Scroll</span>
-              <motion.div
-                animate={{ y: [0, 6, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              >
-                <ArrowDown className="h-4 w-4" />
-              </motion.div>
-            </motion.a>
+            <ArrowDown className="h-4 w-4" />
           </motion.div>
+        </motion.a>
 
-          {/* Social links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.3 }}
-            className="flex items-center justify-center gap-3 mt-6"
-          >
-            {[
-              { icon: Github, href: "#", label: "GitHub" },
-              { icon: Linkedin, href: "#", label: "LinkedIn" },
-              { icon: Mail, href: "#contact", label: "Email" },
-            ].map(({ icon: Icon, href, label }) => (
-              <MagneticButton key={label} as="a" href={href} className="p-3 glass-card border border-border text-muted-foreground hover:text-foreground transition-colors rounded-2xl">
-                <Icon className="h-5 w-5" />
-              </MagneticButton>
-            ))}
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.3 }}
+          className="flex items-center gap-3"
+        >
+          {[
+            { icon: Github, href: "#", label: "GitHub" },
+            { icon: Linkedin, href: "#", label: "LinkedIn" },
+            { icon: Mail, href: "#contact", label: "Email" },
+          ].map(({ icon: Icon, href, label }) => (
+            <MagneticButton key={label} as="a" href={href} className="p-3 glass-card border border-border text-muted-foreground hover:text-foreground transition-colors rounded-2xl">
+              <Icon className="h-5 w-5" />
+            </MagneticButton>
+          ))}
         </motion.div>
       </div>
     </section>

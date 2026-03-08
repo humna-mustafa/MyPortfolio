@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
 import { Suspense } from "react";
-import Marquee from "./Marquee";
 
 const skillGroups = [
   {
@@ -20,8 +19,6 @@ const skillGroups = [
     skills: ["Git", "Docker", "AWS", "CI/CD", "Figma", "Testing"],
   },
 ];
-
-const allSkills = skillGroups.flatMap((g) => g.skills);
 
 const MiniOrb = ({ color }) => {
   const ref = useRef(null);
@@ -47,28 +44,17 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="section-padding relative overflow-hidden" ref={ref}>
-      {/* Background orb */}
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[100px] -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative">
-        {/* Marquee at top */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <Marquee items={allSkills} speed={25} />
-          <Marquee items={[...allSkills].reverse()} speed={30} reverse />
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+          {/* Left: heading + skills */}
+          <div className="lg:col-span-3">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="mb-12"
+              className="mb-10"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-px w-12 bg-primary/50" />
@@ -88,18 +74,18 @@ const SkillsSection = () => {
                   transition={{ delay: 0.2 + gi * 0.15, duration: 0.5 }}
                 >
                   <h3 className="font-display font-semibold text-lg mb-3 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    {group.title}
+                    <span className="w-2 h-2 rounded-full bg-primary" />
+                    <span className="gradient-text">{group.title}</span>
                   </h3>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2.5">
                     {group.skills.map((skill, si) => (
                       <motion.span
                         key={skill}
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={inView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ delay: 0.3 + gi * 0.1 + si * 0.05 }}
-                        whileHover={{ scale: 1.08, y: -3 }}
-                        className="px-4 py-2 rounded-xl glass-card border border-border text-sm font-medium text-foreground cursor-default relative group overflow-hidden"
+                        whileHover={{ scale: 1.06, y: -2 }}
+                        className="px-5 py-2.5 rounded-xl border border-border bg-card/60 text-sm font-medium text-foreground cursor-default relative group overflow-hidden transition-colors hover:border-primary/30"
                       >
                         <span className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                         <span className="relative">{skill}</span>
@@ -111,11 +97,12 @@ const SkillsSection = () => {
             </div>
           </div>
 
+          {/* Right: 3D orb */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="h-[350px] hidden lg:block"
+            className="lg:col-span-2 h-[300px] hidden lg:block sticky top-32"
           >
             <Canvas camera={{ position: [0, 0, 4], fov: 45 }}>
               <Suspense fallback={null}>
