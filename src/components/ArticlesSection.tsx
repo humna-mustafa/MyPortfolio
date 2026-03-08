@@ -59,7 +59,14 @@ const ArticlesSection = () => {
               transition={{ delay: 0.1 * i, duration: 0.5 }}
               className="group relative overflow-hidden rounded-2xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--primary)/0.2)] transition-all duration-500"
             >
-              <div className="p-6 flex flex-col h-full">
+              <div className="aspect-[2/1] overflow-hidden">
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 flex flex-col">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="p-2 rounded-lg bg-primary/10">
                     <BookOpen className="h-4 w-4 text-primary" />
