@@ -49,7 +49,7 @@ const ArticlesSection = () => {
           {articles.map((article, i) => (
             <motion.a
               key={article.title}
-              href="https://medium.com/@humna-mustafa"
+              href={article.url}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
