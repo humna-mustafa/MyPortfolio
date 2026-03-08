@@ -94,9 +94,9 @@ export const FloatingNav = ({
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="font-display text-xl font-bold gradient-text tracking-tight shrink-0 hover:opacity-80 transition-opacity"
+            className="shrink-0 hover:opacity-80 transition-opacity"
           >
-            SA<span className="text-accent">.</span>
+            <img src={logoSvg} alt="HM Logo" className="h-9 w-9 rounded-full" />
           </a>
 
           {/* Desktop Nav */}
