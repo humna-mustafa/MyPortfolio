@@ -6,6 +6,8 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
+import { FileText } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
 import logoSvg from "@/assets/logo.svg";
 
