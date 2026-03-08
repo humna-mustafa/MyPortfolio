@@ -23,15 +23,6 @@ const HeroSection = () => {
           transition={{ duration: 0.3 }}
         >
           {/* Status badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border glass-card mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-xs font-display tracking-wider uppercase text-muted-foreground">Available for work</span>
-          </motion.div>
 
           <div className="mb-4">
             <TextReveal
