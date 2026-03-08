@@ -51,6 +51,8 @@ const CustomCursor = () => {
           y: smoothY,
           translateX: "-50%",
           translateY: "-50%",
+          willChange: "transform, width, height, opacity",
+          contain: "layout style",
         }}
         animate={{
           width: hovering ? 48 : 12,

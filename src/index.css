@@ -181,6 +181,13 @@
   .text-balance {
     text-wrap: balance;
   }
+
+
+  /* Reduce forced reflows on animated/fixed elements */
+  .perf-layer {
+    will-change: transform;
+    contain: layout style;
+  }
 }
 
 /* Smooth scrolling */

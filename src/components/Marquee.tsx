@@ -12,6 +12,7 @@ const Marquee = ({ items, speed = 20, reverse = false }: MarqueeProps) => {
   return (
     <div className="overflow-hidden whitespace-nowrap py-4">
       <motion.div
+        style={{ willChange: "transform", contain: "layout style" }}
         className="inline-flex gap-8"
         animate={{
           x: reverse ? ["0%", "-33.33%"] : ["-33.33%", "0%"],
