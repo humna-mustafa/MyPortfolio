@@ -57,10 +57,11 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-12 text-balance leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 text-balance leading-relaxed"
           >
-            Passionate about developing innovative software solutions
-            with emerging technologies. Based in Lahore, Pakistan.
+            A passionate <span className="text-primary font-semibold">Software Engineering</span> student who loves turning ideas into real, 
+            impactful digital products. I build full-stack web apps, contribute to open source, 
+            and constantly explore emerging technologies — all from <span className="gradient-accent-text font-semibold">Lahore, Pakistan</span>.
           </motion.p>
 
           {/* CTA buttons */}
