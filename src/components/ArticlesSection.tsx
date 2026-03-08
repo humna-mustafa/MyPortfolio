@@ -45,7 +45,7 @@ const ArticlesSection = () => {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-1 max-w-lg gap-6">
           {articles.map((article, i) => (
             <motion.a
               key={article.title}
