@@ -1,6 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import citizenConnectImg from "@/assets/project-citizenconnect.jpg";
+import pakUniImg from "@/assets/project-pakuni.jpg";
+import sp26OopImg from "@/assets/project-sp26oop.jpg";
 
 const projects = [
   {
@@ -12,6 +15,7 @@ const projects = [
     color: "from-primary/20 to-accent/10",
     number: "01",
     link: "https://github.com/humna-mustafa/citizenconnect",
+    image: citizenConnectImg,
   },
   {
     title: "PakUni",
@@ -22,6 +26,7 @@ const projects = [
     color: "from-accent/20 to-primary/10",
     number: "02",
     link: "https://github.com/humna-mustafa/PakUni",
+    image: pakUniImg,
   },
   {
     title: "SP26-OOP",
@@ -32,6 +37,7 @@ const projects = [
     color: "from-primary/15 to-accent/15",
     number: "03",
     link: "https://github.com/humna-mustafa/SP26-OOP",
+    image: sp26OopImg,
   },
 ];
 
@@ -63,7 +69,7 @@ const ProjectsSection = () => {
           </div>
         </motion.div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {projects.map((p, i) => (
             <motion.a
               key={p.title}
@@ -83,43 +89,45 @@ const ProjectsSection = () => {
                   animate={{ opacity: hoveredIdx === i ? 1 : 0 }}
                 />
 
-                <div className="relative flex items-center justify-between py-5 md:py-6 px-5 md:px-8 gap-4 md:gap-6">
-                  {/* Number badge */}
-                  <div className="hidden sm:flex shrink-0 w-16 h-16 md:w-24 md:h-24 rounded-xl border border-border/50 items-center justify-center bg-muted/30">
-                    <span className="text-2xl md:text-3xl font-bold font-display text-primary/40">{p.number}</span>
+                <div className="relative flex flex-col md:flex-row">
+                  {/* Image */}
+                  <div className="relative w-full md:w-72 lg:w-80 shrink-0 overflow-hidden">
+                    <motion.img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-48 md:h-full object-cover"
+                      animate={{ scale: hoveredIdx === i ? 1.05 : 1 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/80 hidden md:block" />
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="text-xs font-display text-muted-foreground/60 tracking-wider uppercase">{p.year}</span>
-                      <span className="text-[10px] px-2.5 py-0.5 rounded-full border border-primary/20 text-primary/80 font-display uppercase tracking-wider">{p.category}</span>
-                    </div>
-                    <h3 className="font-display text-xl md:text-2xl font-bold group-hover:gradient-text transition-all duration-300">{p.title}</h3>
-                    <motion.div
-                      initial={false}
-                      animate={{ height: hoveredIdx === i ? "auto" : 0, opacity: hoveredIdx === i ? 1 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
+                  <div className="flex-1 flex items-center justify-between p-5 md:p-8 gap-4">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3 mb-1">
+                        <span className="text-xs font-display text-muted-foreground/60 tracking-wider uppercase">{p.year}</span>
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-full border border-primary/20 text-primary/80 font-display uppercase tracking-wider">{p.category}</span>
+                      </div>
+                      <h3 className="font-display text-xl md:text-2xl font-bold group-hover:gradient-text transition-all duration-300">{p.title}</h3>
                       <p className="text-sm text-muted-foreground mt-2 max-w-lg leading-relaxed">{p.desc}</p>
                       <div className="flex flex-wrap gap-2 mt-3">
                         {p.tags.map((t) => (
                           <span key={t} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium border border-primary/10">{t}</span>
                         ))}
                       </div>
-                    </motion.div>
-                  </div>
+                    </div>
 
-                  {/* Arrow */}
-                  <div className="flex items-center shrink-0">
-                    <motion.div
-                      className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300"
-                      animate={{ rotate: hoveredIdx === i ? 0 : -45 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary-foreground transition-colors duration-300" />
-                    </motion.div>
+                    {/* Arrow */}
+                    <div className="flex items-center shrink-0">
+                      <motion.div
+                        className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300"
+                        animate={{ rotate: hoveredIdx === i ? 0 : -45 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary-foreground transition-colors duration-300" />
+                      </motion.div>
+                    </div>
                   </div>
                 </div>
               </div>
