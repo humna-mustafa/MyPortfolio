@@ -12,8 +12,8 @@ const CTASection = () => (
         transition={{ duration: 0.6 }}
         className="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-8"
       >
-        Let's build something<br />
-        <span className="gradient-text">extraordinary together</span>
+        Ready to build the<br />
+        <span className="gradient-text">next big thing?</span>
       </motion.h2>
       <motion.div
         initial={{ opacity: 0, y: 20 }}

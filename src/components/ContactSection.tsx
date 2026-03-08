@@ -67,9 +67,9 @@ const ContactSection = () => {
             className="lg:col-span-2 space-y-8"
           >
             <p className="text-muted-foreground text-lg leading-relaxed">
-              I'm always open to new opportunities, collaborations, and
-              interesting conversations. Whether you have a project idea or
-              just want to say hi — drop me a message!
+              Looking for an engineer who ships fast, writes clean code, and 
+              thinks in systems? Let's talk. I'm open to internships, collaborations, 
+              and ambitious projects that push boundaries.
             </p>
 
             <div className="space-y-4">

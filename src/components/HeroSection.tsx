@@ -24,7 +24,7 @@ const HeroSection = () => {
         >
           <div className="mb-4">
             <TextReveal
-              text="Software Engineering Student"
+              text="Software Engineer · Builder · Problem Solver"
               className="text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground font-display block"
               delay={0.3}
             />
@@ -59,9 +59,9 @@ const HeroSection = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 text-balance leading-relaxed"
           >
-            A passionate <span className="text-primary font-semibold">Software Engineering</span> student who loves turning ideas into real, 
-            impactful digital products. I build full-stack web apps, contribute to open source, 
-            and constantly explore emerging technologies — all from <span className="gradient-accent-text font-semibold">Lahore, Pakistan</span>.
+            I architect <span className="text-primary font-semibold">full-stack systems</span> that scale, ship production-grade code, 
+            and obsess over clean architecture. Currently engineering solutions that 
+            impact <span className="gradient-accent-text font-semibold">thousands of users</span>.
           </motion.p>
 
           {/* CTA buttons */}
