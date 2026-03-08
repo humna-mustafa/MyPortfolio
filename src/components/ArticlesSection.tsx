@@ -1,15 +1,17 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight, BookOpen } from "lucide-react";
+import articleComsatsImg from "@/assets/article-comsats.png";
 
 const articles = [
   {
     title: "How to Crack COMSATS Admission Test and NTS-NAT",
     excerpt: "Proven strategy and tips for COMSATS and NTS-NAT Test — Prepare smart, not hard.",
-    date: "2025",
-    readTime: "5 min read",
+    date: "Sep 2025",
+    readTime: "4 min read",
     tags: ["Education", "COMSATS"],
     url: "https://medium.com/@humna-mustafa/how-to-crack-comsats-admission-test-and-nts-nat-f8acb35beda0",
+    image: articleComsatsImg,
   },
 ];
 
