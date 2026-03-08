@@ -70,7 +70,7 @@ const TimelineSection = () => {
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-px" />
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-primary/30 md:-translate-x-px" />
 
           {timeline.map((item, i) => {
             const isLeft = i % 2 === 0;
