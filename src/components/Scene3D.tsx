@@ -16,14 +16,8 @@ const AnimatedSphere = () => {
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
       <mesh ref={meshRef} scale={2.2}>
         <icosahedronGeometry args={[1, 1]} />
-        {/* @ts-ignore */}
-        <MeshDistortMaterial
-          color="#7c3aed"
-          wireframe
-          distort={0.3}
-          speed={2}
-          roughness={0}
-        />
+        <meshStandardMaterial color="#7c3aed" wireframe />
+        
       </mesh>
     </Float>
   );
