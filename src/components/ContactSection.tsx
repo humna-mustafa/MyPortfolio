@@ -51,14 +51,14 @@ const ContactSection = () => {
 
             <div className="space-y-4">
               <motion.a
-                href="mailto:humna.mustafa@example.com"
+                href="mailto:humnamustafa01@gmail.com"
                 whileHover={{ x: 4 }}
                 className="flex items-center gap-3 text-muted-foreground group cursor-pointer"
               >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                   <Mail className="h-4 w-4 text-primary" />
                 </div>
-                <span className="text-sm">humna.mustafa@example.com</span>
+                <span className="text-sm">humnamustafa01@gmail.com</span>
               </motion.a>
               <motion.div
                 whileHover={{ x: 4 }}
