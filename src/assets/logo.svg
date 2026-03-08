@@ -1,0 +1,85 @@
+<!-- Profile (Rounded) – Unique HV Monogram, Personal Aqua→Teal Gradient, Deep Black BG, Subtle Inner Glow -->
+<svg role="img" aria-labelledby="title desc" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" width="512" height="512" version="1.1">
+  <title id="title">Humna Mustafa – Unique HV Monogram on #010100</title>
+  <desc id="desc">Distinct personal symbol: H side pillars with a folded V center using #00D8FF→#008CBF gradient, #010100 background, 1–2px inner cyan glow, perfectly centered and symmetric.</desc>
+  <defs>
+    <!-- Background: Pure black to match banner -->
+    <radialGradient id="bgCircle" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#000000"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    
+    <!-- Bluish Shade: Soft ambient cyan glow similar to banner effects -->
+    <radialGradient id="blueAmbient" cx="50%" cy="50%" r="60%" fx="50%" fy="45%">
+      <stop offset="0%" stop-color="#00BFEF" stop-opacity="0.18"/>
+      <stop offset="70%" stop-color="#8A2BE2" stop-opacity="0.05"/> <!-- Added subtle Purple hint to match banner -->
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Pillars: flat bright cyan (same color both stops) for clean look; glow applied to pillars group -->
+    <linearGradient id="pillarP" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#00BFEF"/>
+      <stop offset="100%" stop-color="#00BFEF"/>
+    </linearGradient>
+
+    <!-- V facets per request: left slightly darker, right slightly lighter -->
+    <linearGradient id="facet-leftV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#0095CF"/>
+      <stop offset="100%" stop-color="#0095CF"/>
+    </linearGradient>
+    <linearGradient id="facet-rightV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#00C6FF"/>
+      <stop offset="100%" stop-color="#00C6FF"/>
+    </linearGradient>
+
+    <!-- Inner shadow for V fold: subtle, to simulate inward bend -->
+    <filter id="foldInner" x="-10%" y="-10%" width="120%" height="120%">
+      <feOffset in="SourceAlpha" dx="0" dy="1" result="saOffset"/>
+      <feGaussianBlur in="saOffset" stdDeviation="1.2" result="saBlur"/>
+      <feComposite in="saBlur" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="innerShadow"/>
+      <feColorMatrix in="innerShadow" type="matrix" values="0 0 0 0 0   0 0 0 0 0.52   0 0 0 0 0.75  0 0 0 0.22 0" result="tint"/>
+      <feComposite in="SourceGraphic" in2="tint" operator="over"/>
+    </filter>
+    
+    <!-- Removed old crease gradient (using single stroke) -->
+
+    <!-- Very subtle inner glow (1–2px, light cyan) to add gentle depth -->
+    <filter id="innerGlow" x="-3%" y="-3%" width="106%" height="106%">
+      <!-- Create a thin inner band -->
+      <feMorphology in="SourceAlpha" operator="erode" radius="1" result="erode"/>
+      <feGaussianBlur in="erode" stdDeviation="1" result="blur"/>
+      <feFlood flood-color="#B8F3FF" flood-opacity="0.28" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="innerGlow"/>
+      <feComposite in="SourceGraphic" in2="innerGlow" operator="over"/>
+    </filter>
+    <clipPath id="circle-clip"><circle cx="256" cy="256" r="256"/></clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+    <circle cx="256" cy="256" r="256" fill="url(#bgCircle)"/>
+    <!-- Ambient bluish shade applied to background -->
+    <circle cx="256" cy="256" r="256" fill="url(#blueAmbient)"/>
+  <!-- Scaled to fit within 400×400px safe zone -->
+  <g transform="translate(256 256) scale(0.78) translate(-256 -256)" shape-rendering="geometricPrecision">
+      <!-- Pillars (unchanged geometry) -->
+      <g filter="url(#innerGlow)">
+        <rect x="122" y="64" width="58" height="384" rx="16" fill="url(#pillarP)"/>
+        <rect x="332" y="64" width="58" height="384" rx="16" fill="url(#pillarP)"/>
+      </g>
+
+    <!-- Unique inner-top chamfer notches for distinctive identity -->
+    <path d="M180 64 L170 64 L180 74 Z" fill="#010100"/>
+    <path d="M332 64 L342 64 L332 74 Z" fill="#010100"/>
+
+      <!-- V faces: tuned gradients + inner shadow to create a folded-in look -->
+  <!-- Overlap both V faces by 1px for a seamless crease (no anti-aliased gap) -->
+  <g filter="url(#foldInner)">
+    <path d="M256.5 246 177 182 177 266 256.5 330Z" fill="url(#facet-leftV)"/>
+    <path d="M255.5 246 335 182 335 266 255.5 330Z" fill="url(#facet-rightV)"/>
+  </g>
+
+  <!-- Crease: base stroke + faint highlight for depth -->
+  <path d="M256 246 L256 330" stroke="#0078BF" stroke-opacity="0.20" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+    </g>
+  </g>
+  <metadata>Personal HV monogram: #00D8FF→#008CBF gradient, #010100 background, subtle inner glow (1–2px), safe-zone centered, unique inner-top chamfers.</metadata>
+</svg>
