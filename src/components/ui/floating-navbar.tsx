@@ -15,7 +15,6 @@ export const FloatingNav = ({
   navItems: {
     name: string;
     link: string;
-    icon?: JSX.Element;
   }[];
   className?: string;
 }) => {
@@ -36,25 +35,25 @@ export const FloatingNav = ({
 
   useEffect(() => {
     const sectionIds = [...navItems.map((item) => item.link.replace("#", "")), "contact"];
-    const observers: IntersectionObserver[] = [];
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(`#${id}`);
-        },
-        { rootMargin: "-40% 0px -55% 0px" }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
+    const handleScroll = () => {
+      let current = "";
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.4) {
+            current = `#${id}`;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
 
-    return () => observers.forEach((o) => o.disconnect());
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [navItems]);
-
-  const allLinks = [...navItems.map((n) => ({ name: n.name, link: n.link, icon: n.icon }))];
 
   return (
     <AnimatePresence mode="wait">
@@ -63,14 +62,14 @@ export const FloatingNav = ({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4 }}
         className={cn(
-          "fixed top-4 inset-x-0 mx-auto z-[5000] w-[90%] max-w-3xl",
+          "fixed top-4 inset-x-0 mx-auto z-[5000] px-4 md:px-8 w-full max-w-5xl",
           className
         )}
       >
         <motion.div
           animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
           transition={{ duration: 0.25 }}
-          className="flex items-center justify-between border border-border rounded-2xl bg-background/70 backdrop-blur-xl shadow-[0_4px_30px_-8px_hsl(var(--primary)/0.15)] px-5 py-2.5"
+          className="flex items-center justify-between border border-border rounded-2xl bg-background/70 backdrop-blur-xl shadow-[0_4px_30px_-8px_hsl(var(--primary)/0.15)] px-6 py-2.5"
         >
           <a href="#" className="font-display text-lg font-bold gradient-text tracking-tight shrink-0">
             SA<span className="text-accent">.</span>
@@ -78,18 +77,18 @@ export const FloatingNav = ({
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
-            {allLinks.map((navItem, idx) => (
+            {navItems.map((navItem, idx) => (
               <a
                 key={`nav-${idx}`}
                 href={navItem.link}
                 className={cn(
-                  "relative flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors rounded-lg",
+                  "relative px-4 py-2 text-sm font-medium transition-colors rounded-lg",
                   activeSection === navItem.link
                     ? "text-foreground bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
                 )}
               >
-                <span>{navItem.name}</span>
+                {navItem.name}
                 {activeSection === navItem.link && (
                   <motion.div
                     layoutId="active-pill"
@@ -104,7 +103,7 @@ export const FloatingNav = ({
               className={cn(
                 "relative rounded-lg border px-5 py-2 text-sm font-medium transition-colors ml-1",
                 activeSection === "#contact"
-                  ? "border-primary bg-primary text-primary-foreground"
+                  ? "border-primary bg-primary text-primary-foreground ring-2 ring-primary/30"
                   : "border-border bg-primary text-primary-foreground hover:bg-primary/90"
               )}
             >
@@ -117,7 +116,7 @@ export const FloatingNav = ({
 
           {/* Mobile Nav */}
           <div className="flex md:hidden items-center gap-1">
-            {allLinks.map((navItem, idx) => (
+            {navItems.map((navItem, idx) => (
               <a
                 key={`nav-m-${idx}`}
                 href={navItem.link}
@@ -133,7 +132,12 @@ export const FloatingNav = ({
             ))}
             <a
               href="#contact"
-              className="rounded-lg bg-primary text-primary-foreground px-3 py-1.5 text-xs font-medium hover:bg-primary/90 transition-colors"
+              className={cn(
+                "rounded-lg px-3 py-1.5 text-xs font-medium transition-colors",
+                activeSection === "#contact"
+                  ? "bg-primary text-primary-foreground ring-2 ring-primary/30"
+                  : "bg-primary text-primary-foreground hover:bg-primary/90"
+              )}
             >
               Contact
             </a>
