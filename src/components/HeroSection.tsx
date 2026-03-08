@@ -101,13 +101,13 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom area - scroll + socials, pinned to bottom */}
-      <div className="relative z-10 pb-10 flex flex-col items-center">
+      <div className="relative z-10 pb-8 flex flex-col items-center gap-4">
         <motion.a
           href="#about"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-10"
+          className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
         >
           <span className="text-[10px] font-display tracking-[0.2em] uppercase">Scroll</span>
           <motion.div
