@@ -1,6 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import flowboardImg from "@/assets/project-flowboard.jpg";
+import pixelperfectImg from "@/assets/project-pixelperfect.jpg";
+import ecotrackImg from "@/assets/project-ecotrack.jpg";
+import synthwaveImg from "@/assets/project-synthwave.jpg";
 
 const projects = [
   {
@@ -11,6 +15,7 @@ const projects = [
     category: "Full-Stack",
     color: "from-primary/20 to-accent/10",
     number: "01",
+    image: flowboardImg,
   },
   {
     title: "PixelPerfect",
@@ -20,6 +25,7 @@ const projects = [
     category: "AI / ML",
     color: "from-accent/20 to-primary/10",
     number: "02",
+    image: pixelperfectImg,
   },
   {
     title: "EcoTrack",
@@ -29,6 +35,7 @@ const projects = [
     category: "Mobile",
     color: "from-primary/15 to-accent/15",
     number: "03",
+    image: ecotrackImg,
   },
   {
     title: "Synthwave",
@@ -38,6 +45,7 @@ const projects = [
     category: "Creative",
     color: "from-accent/15 to-primary/20",
     number: "04",
+    image: synthwaveImg,
   },
 ];
 
@@ -87,11 +95,21 @@ const ProjectsSection = () => {
                   animate={{ opacity: hoveredIdx === i ? 1 : 0 }}
                 />
 
-                <div className="relative flex items-center justify-between py-6 md:py-8 px-6 md:px-8">
-                  {/* Left: Number */}
-                  <span className="hidden md:block text-5xl font-bold font-display text-muted-foreground/10 group-hover:text-primary/20 transition-colors duration-300 mr-8 select-none">
-                    {p.number}
-                  </span>
+                <div className="relative flex items-center justify-between py-5 md:py-6 px-5 md:px-8 gap-4 md:gap-6">
+                  {/* Thumbnail */}
+                  <motion.div
+                    className="hidden sm:block shrink-0 w-16 h-16 md:w-24 md:h-24 rounded-xl overflow-hidden border border-border/50"
+                    animate={{
+                      scale: hoveredIdx === i ? 1.05 : 1,
+                    }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </motion.div>
 
                   {/* Center: Content */}
                   <div className="flex-1 min-w-0">
@@ -116,7 +134,7 @@ const ProjectsSection = () => {
                   </div>
 
                   {/* Right: Arrow */}
-                  <div className="flex items-center ml-6 shrink-0">
+                  <div className="flex items-center shrink-0">
                     <motion.div
                       className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300"
                       animate={{ rotate: hoveredIdx === i ? 0 : -45 }}
