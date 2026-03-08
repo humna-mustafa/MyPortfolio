@@ -59,10 +59,10 @@ const HeroSection = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 text-balance leading-relaxed"
           >
-            I don't just write code — I <span className="text-primary font-semibold">engineer solutions</span>. 
-            From civic-tech platforms serving real communities to developer tools used across Pakistan, 
-            I build full-stack systems with <span className="gradient-accent-text font-semibold">Java, React, TypeScript & Node.js</span> that 
-            actually ship and actually matter.
+            A Software Engineering student at COMSATS who doesn't wait for the classroom to start building. 
+            I spend my days writing <span className="text-primary font-semibold">clean, purposeful code</span> in 
+            <span className="gradient-accent-text font-semibold">Java, React, TypeScript & C++</span> — learning by doing, 
+            shipping real projects, and growing one commit at a time.
           </motion.p>
 
           {/* CTA buttons */}

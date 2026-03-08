@@ -4,17 +4,17 @@ import { Code2, Palette, Zap, Heart } from "lucide-react";
 import CounterStat from "./CounterStat";
 
 const qualities = [
-  { icon: Code2, title: "Systems Thinker", desc: "I see the full picture — from database schema to pixel-perfect UI to deployment pipeline." },
-  { icon: Palette, title: "Product-Minded", desc: "Every feature I build solves a real problem for real users. I ship outcomes, not just code." },
-  { icon: Zap, title: "Fast Learner, Faster Builder", desc: "New framework? Give me a weekend. I pick up tools quickly and deliver even quicker." },
-  { icon: Heart, title: "Community Builder", desc: "175+ open-source contributions, published articles with 10K+ readers, and always building in public." },
+  { icon: Code2, title: "Systems Thinker", desc: "I don't just write code — I think about architecture, data flow, and how everything connects end to end." },
+  { icon: Palette, title: "Detail-Oriented", desc: "Clean code, meaningful variable names, atomic commits. The small things matter because they compound." },
+  { icon: Zap, title: "Fast Learner", desc: "Picked up React, TypeScript, and Firebase within months — not from tutorials, but by building real projects." },
+  { icon: Heart, title: "Open-Source Contributor", desc: "175+ GitHub contributions and counting. I believe in building in public and learning from the community." },
 ];
 
 const stats = [
-  { value: 10, suffix: "+", label: "Projects Shipped" },
   { value: 175, suffix: "+", label: "GitHub Contributions" },
   { value: 6, suffix: "+", label: "Languages & Frameworks" },
-  { value: 10, suffix: "K+", label: "Article Readers" },
+  { value: 5, suffix: "+", label: "Projects Built" },
+  { value: 1, suffix: "st", label: "Semester & Already Shipping" },
 ];
 
 const AboutSection = () => {
@@ -37,14 +37,14 @@ const AboutSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">About Me</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 leading-tight">
-            I build software that<br />
-            <span className="gradient-text">people actually use</span>
+            I learn by <span className="gradient-text">building things</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            I'm Humna — a Software Engineering undergraduate at <span className="text-primary font-medium">COMSATS University Islamabad, Lahore Campus</span>, 
-            and I've been shipping production software since my first semester. While most students are still figuring out their first "Hello World," 
-            I was building <span className="text-primary font-medium">CitizenConnect</span> — a civic-tech platform now serving 500+ active users connecting 
-            citizens with local government. I think in systems, write clean code with atomic commits, and my PRs always tell a story.
+            I'm Humna — a first-year Software Engineering student at <span className="text-primary font-medium">COMSATS University Islamabad, Lahore Campus</span>. 
+            Most students wait until third year to start building — I started in my first semester. I've already built full-stack web apps, 
+            explored design patterns and clean architecture in <span className="text-primary font-medium">Java & C++</span>, and earned multiple 
+            GitHub achievements through consistent open-source contributions. I'm not where I want to be yet — but I'm learning fast, 
+            building every day, and obsessed with writing code that's clean, maintainable, and meaningful.
           </p>
         </motion.div>
 

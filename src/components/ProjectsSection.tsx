@@ -2,42 +2,42 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import citizenConnectImg from "@/assets/project-citizenconnect.jpg";
-import pakUniImg from "@/assets/project-pakuni.jpg";
+
 import sp26OopImg from "@/assets/project-sp26oop.jpg";
 
 const projects = [
   {
     title: "CitizenConnect",
-    desc: "A full-stack civic engagement platform that bridges the gap between citizens and local government. Built with real-time communication, role-based authentication, and an analytics dashboard — now actively used by 500+ people in their daily civic interactions.",
+    desc: "A full-stack civic engagement platform built as a university course project. Features role-based authentication, real-time communication, and an analytics dashboard. My first complete full-stack application — designed, built, and polished from scratch.",
     tags: ["React", "TypeScript", "Firebase", "Full Stack"],
     year: "2025",
-    category: "Production",
+    category: "Course Project",
     color: "from-primary/20 to-accent/10",
     number: "01",
     link: "https://github.com/humna-mustafa/citizenconnect",
     image: citizenConnectImg,
   },
   {
-    title: "PakUni",
-    desc: "Pakistan's most comprehensive university discovery platform — aggregating data for 200+ institutions with advanced search, comparison tools, and personalized recommendations. One place to find your perfect university.",
-    tags: ["React", "Node.js", "REST API", "UI/UX"],
-    year: "2026",
-    category: "Shipped",
-    color: "from-accent/20 to-primary/10",
-    number: "02",
-    link: "https://github.com/humna-mustafa/PakUni",
-    image: pakUniImg,
-  },
-  {
     title: "SP26-OOP",
-    desc: "A deep-dive into software craftsmanship — enterprise-grade OOP implementations featuring SOLID principles, Gang of Four design patterns, and clean architecture. The kind of engineering rigor that scales from startups to FAANG.",
+    desc: "A comprehensive collection of OOP implementations exploring SOLID principles, Gang of Four design patterns, and clean architecture in Java & C++. Not just assignments — a personal deep-dive into writing software that's structured, testable, and maintainable.",
     tags: ["Java", "C++", "Design Patterns", "Clean Architecture"],
     year: "2026",
     category: "Engineering",
     color: "from-primary/15 to-accent/15",
-    number: "03",
+    number: "02",
     link: "https://github.com/humna-mustafa/SP26-OOP",
     image: sp26OopImg,
+  },
+  {
+    title: "Personal Portfolio",
+    desc: "The site you're looking at right now. Built from scratch with React, TypeScript, and Framer Motion — custom 3D scene, smooth animations, dark/light themes, and responsive design. No templates, no shortcuts.",
+    tags: ["React", "TypeScript", "Framer Motion", "Tailwind"],
+    year: "2026",
+    category: "Personal",
+    color: "from-accent/20 to-primary/10",
+    number: "03",
+    link: "https://github.com/humna-mustafa",
+    image: citizenConnectImg,
   },
 ];
 
