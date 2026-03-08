@@ -25,7 +25,7 @@ export default {
   				'sans-serif'
   			],
   			sans: [
-  				'Space Grotesk',
+  				'Inter',
   				'ui-sans-serif',
   				'system-ui',
   				'-apple-system',
@@ -153,7 +153,7 @@ export default {
   					transform: 'translateX(0)'
   				}
   			},
-  			'float': {
+  			float: {
   				'0%, 100%': {
   					transform: 'translateY(0)'
   				},
@@ -184,7 +184,7 @@ export default {
   			'fade-up': 'fade-up 0.6s ease-out forwards',
   			'fade-in': 'fade-in 0.5s ease-out forwards',
   			'slide-in-left': 'slide-in-left 0.6s ease-out forwards',
-  			'float': 'float 6s ease-in-out infinite',
+  			float: 'float 6s ease-in-out infinite',
   			'spin-slow': 'spin-slow 20s linear infinite',
   			'pulse-glow': 'pulse-glow 3s ease-in-out infinite'
   		},
