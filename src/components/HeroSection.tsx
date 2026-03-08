@@ -101,13 +101,13 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom area - scroll + socials, pinned to bottom */}
-      <div className="relative z-10 pb-8 flex flex-col items-center gap-8">
+      <div className="relative z-10 pb-10 flex flex-col items-center">
         <motion.a
           href="#about"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-10"
         >
           <span className="text-[10px] font-display tracking-[0.2em] uppercase">Scroll</span>
           <motion.div
@@ -122,16 +122,16 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3 }}
-          className="flex items-center gap-3"
+          className="flex items-center gap-5"
         >
           {[
             { icon: Github, href: "#", label: "GitHub" },
             { icon: Linkedin, href: "#", label: "LinkedIn" },
             { icon: Mail, href: "#contact", label: "Email" },
           ].map(({ icon: Icon, href, label }) => (
-            <MagneticButton key={label} as="a" href={href} className="p-3 glass-card border border-border text-muted-foreground hover:text-foreground transition-colors rounded-2xl">
+            <a key={label} href={href} className="p-3 glass-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors rounded-2xl">
               <Icon className="h-5 w-5" />
-            </MagneticButton>
+            </a>
           ))}
         </motion.div>
       </div>
