@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import citizenConnectImg from "@/assets/project-citizenconnect.jpg";
-import pakUniImg from "@/assets/project-pakuni.jpg";
+
 import sp26OopImg from "@/assets/project-sp26oop.jpg";
 
 const projects = [
