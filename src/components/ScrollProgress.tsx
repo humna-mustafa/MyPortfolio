@@ -9,6 +9,8 @@ const ScrollProgress = () => {
       style={{
         scaleX: scrollYProgress,
         background: "var(--gradient-primary)",
+        willChange: "transform",
+        contain: "layout style",
       }}
     />
   );
