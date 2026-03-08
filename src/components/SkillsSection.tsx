@@ -1,14 +1,14 @@
 // @ts-nocheck
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, animate } from "framer-motion";
+import { useRef, useEffect, useState, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
-import { Suspense } from "react";
+import { Code2, Server, Wrench, Zap, TrendingUp, Award, Coffee, Rocket } from "lucide-react";
 
 const skillGroups = [
   {
     title: "Frontend",
-    icon: "🎨",
+    icon: <Code2 className="w-5 h-5 text-primary" />,
     skills: [
       { name: "React", level: 95 },
       { name: "TypeScript", level: 90 },
@@ -20,7 +20,7 @@ const skillGroups = [
   },
   {
     title: "Backend",
-    icon: "⚙️",
+    icon: <Server className="w-5 h-5 text-primary" />,
     skills: [
       { name: "Node.js", level: 90 },
       { name: "Python", level: 85 },
@@ -32,7 +32,7 @@ const skillGroups = [
   },
   {
     title: "Tools & DevOps",
-    icon: "🚀",
+    icon: <Wrench className="w-5 h-5 text-primary" />,
     skills: [
       { name: "Git", level: 95 },
       { name: "Docker", level: 80 },
@@ -42,6 +42,20 @@ const skillGroups = [
       { name: "Testing", level: 82 },
     ],
   },
+];
+
+const stats = [
+  { value: 18, suffix: "+", label: "Technologies", icon: <Zap className="w-4 h-4" /> },
+  { value: 5, suffix: "+", label: "Years Exp.", icon: <TrendingUp className="w-4 h-4" /> },
+  { value: 50, suffix: "+", label: "Projects", icon: <Award className="w-4 h-4" /> },
+  { value: 100, suffix: "%", label: "Dedication", icon: <Rocket className="w-4 h-4" /> },
+];
+
+const philosophyItems = [
+  { title: "Clean Code", desc: "Readable, maintainable, scalable" },
+  { title: "Performance", desc: "Optimized for speed & UX" },
+  { title: "Accessibility", desc: "Inclusive by design" },
+  { title: "Testing", desc: "Reliable & bug-free delivery" },
 ];
 
 const MiniOrb = ({ color }) => {
@@ -60,6 +74,24 @@ const MiniOrb = ({ color }) => {
       </mesh>
     </Float>
   );
+};
+
+const AnimatedCounter = ({ value, suffix, delay, inView }: { value: number; suffix: string; delay: number; inView: boolean }) => {
+  const [display, setDisplay] = useState(0);
+  useEffect(() => {
+    if (inView) {
+      const timer = setTimeout(() => {
+        const controls = animate(0, value, {
+          duration: 2,
+          ease: "easeOut",
+          onUpdate: (v) => setDisplay(Math.floor(v)),
+        });
+        return () => controls.stop();
+      }, delay * 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [inView, value, delay]);
+  return <>{display}{suffix}</>;
 };
 
 const SkillBar = ({ name, level, delay }: { name: string; level: number; delay: number }) => {
@@ -129,9 +161,9 @@ const SkillsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Skill groups */}
-          <div className="lg:col-span-8 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          {/* Skill groups - left */}
+          <div className="lg:col-span-8 space-y-6">
             {skillGroups.map((group, gi) => (
               <motion.div
                 key={group.title}
@@ -141,7 +173,7 @@ const SkillsSection = () => {
                 className="glass-card p-6 md:p-8 group/card hover:border-primary/20 transition-colors"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-xl">{group.icon}</span>
+                  {group.icon}
                   <h3 className="font-display font-semibold text-lg gradient-text">{group.title}</h3>
                   <div className="h-px flex-1 bg-border" />
                 </div>
@@ -159,15 +191,16 @@ const SkillsSection = () => {
             ))}
           </div>
 
-          {/* Right: 3D orb */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="lg:col-span-4 hidden lg:block"
-          >
+          {/* Right sidebar - stacked cards */}
+          <div className="lg:col-span-4 hidden lg:block">
             <div className="sticky top-32 space-y-6">
-              <div className="h-[320px] glass-card overflow-hidden">
+              {/* 3D Orb */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="h-[240px] glass-card overflow-hidden relative"
+              >
                 <Canvas camera={{ position: [0, 0, 4], fov: 45 }}>
                   <Suspense fallback={null}>
                     <ambientLight intensity={0.5} />
@@ -176,31 +209,70 @@ const SkillsSection = () => {
                     <MiniOrb color="#7c3aed" />
                   </Suspense>
                 </Canvas>
-              </div>
+                <div className="absolute bottom-3 left-0 right-0 text-center">
+                  <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground/60 font-display">Interactive 3D</span>
+                </div>
+              </motion.div>
 
-              {/* Stats card */}
+              {/* Stats grid */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.6, duration: 0.5 }}
-                className="glass-card p-6"
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="glass-card p-5"
               >
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { value: "18+", label: "Technologies" },
-                    { value: "5+", label: "Years Exp." },
-                    { value: "50+", label: "Projects" },
-                    { value: "100%", label: "Dedication" },
-                  ].map((stat, i) => (
-                    <div key={stat.label} className="text-center">
-                      <div className="text-xl font-bold font-display gradient-text">{stat.value}</div>
-                      <div className="text-xs text-muted-foreground mt-0.5">{stat.label}</div>
-                    </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {stats.map((stat, i) => (
+                    <motion.div
+                      key={stat.label}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={inView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ delay: 0.6 + i * 0.1 }}
+                      className="relative p-3 rounded-xl bg-muted/30 border border-border/50 hover:border-primary/30 transition-colors group text-center"
+                    >
+                      <div className="flex items-center justify-center gap-1.5 mb-1">
+                        <span className="text-primary/60 group-hover:text-primary transition-colors">{stat.icon}</span>
+                      </div>
+                      <div className="text-2xl font-bold font-display gradient-text">
+                        <AnimatedCounter value={stat.value} suffix={stat.suffix} delay={0.7 + i * 0.1} inView={inView} />
+                      </div>
+                      <div className="text-[11px] text-muted-foreground mt-0.5 font-display tracking-wide uppercase">{stat.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Philosophy / approach card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.7, duration: 0.5 }}
+                className="glass-card p-5"
+              >
+                <h4 className="text-xs uppercase tracking-[0.15em] text-primary font-display mb-4 flex items-center gap-2">
+                  <Coffee className="w-3.5 h-3.5" />
+                  My Approach
+                </h4>
+                <div className="space-y-3">
+                  {philosophyItems.map((item, i) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.8 + i * 0.08 }}
+                      className="flex items-start gap-3 group"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary mt-1.5 transition-colors shrink-0" />
+                      <div>
+                        <span className="text-sm font-medium text-foreground">{item.title}</span>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
