@@ -161,9 +161,13 @@ export const FloatingNav = ({
                 )}
               </a>
             ))}
-            <div className="ml-1">
-              <ThemeToggle />
-            </div>
+            <button
+              onClick={() => navigate("/resume")}
+              className="ml-1 px-2 py-1.5 text-xs font-medium text-primary"
+            >
+              <FileText className="h-3.5 w-3.5" />
+            </button>
+            <ThemeToggle />
           </nav>
         </motion.div>
       </motion.div>
