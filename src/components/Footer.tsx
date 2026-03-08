@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 const Footer = () => (
 <footer className="relative overflow-hidden">
@@ -9,7 +9,7 @@ const Footer = () => (
           <a href="#" className="font-display text-lg font-bold gradient-text">HM<span className="text-accent">.</span></a>
           <span className="hidden md:inline text-border">|</span>
           <p className="text-xs text-muted-foreground/60">
-            © {new Date().getFullYear()} Humna Mustafa. Crafted with precision.
+            © {new Date().getFullYear()} Humna Mustafa. Built with passion from Lahore, Pakistan.
           </p>
         </div>
         <div className="flex items-center gap-3">

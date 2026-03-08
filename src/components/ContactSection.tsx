@@ -55,7 +55,7 @@ const ContactSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Contact</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            Let's <span className="gradient-text">build together</span>
+            Let's <span className="gradient-text">work together</span>
           </h2>
         </motion.div>
 
@@ -67,9 +67,9 @@ const ContactSection = () => {
             className="lg:col-span-2 space-y-8"
           >
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Looking for an engineer who ships fast, writes clean code, and 
-              thinks in systems? Let's talk. I'm open to internships, collaborations, 
-              and ambitious projects that push boundaries.
+              Whether you're a startup looking for a full-stack engineer, a company 
+              seeking an intern who ships from day one, or a fellow builder with a 
+              wild idea — I'd love to hear from you. Let's create something remarkable.
             </p>
 
             <div className="space-y-4">
@@ -90,7 +90,7 @@ const ContactSection = () => {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <MapPin className="h-4 w-4 text-primary" />
                 </div>
-                <span className="text-sm">Lahore, Pakistan</span>
+                <span className="text-sm">Lahore, Pakistan 🇵🇰</span>
               </motion.div>
             </div>
 
@@ -175,7 +175,7 @@ const ContactSection = () => {
                   required
                   rows={5}
                   className={`${inputClasses} resize-none`}
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me about your project or opportunity..."
                   value={formData.message}
                   onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                 />

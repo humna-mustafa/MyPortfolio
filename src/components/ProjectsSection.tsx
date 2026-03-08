@@ -8,7 +8,7 @@ import sp26OopImg from "@/assets/project-sp26oop.jpg";
 const projects = [
   {
     title: "CitizenConnect",
-    desc: "Full-stack civic engagement platform with real-time government-citizen communication, role-based auth, and analytics dashboard. Serves 500+ active users.",
+    desc: "A full-stack civic engagement platform that bridges the gap between citizens and local government. Built with real-time communication, role-based authentication, and an analytics dashboard — now actively used by 500+ people in their daily civic interactions.",
     tags: ["React", "TypeScript", "Firebase", "Full Stack"],
     year: "2025",
     category: "Production",
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: "PakUni",
-    desc: "Comprehensive university discovery platform aggregating data for 200+ Pakistani institutions. Search, compare, and decide — all in one place.",
+    desc: "Pakistan's most comprehensive university discovery platform — aggregating data for 200+ institutions with advanced search, comparison tools, and personalized recommendations. One place to find your perfect university.",
     tags: ["React", "Node.js", "REST API", "UI/UX"],
     year: "2026",
     category: "Shipped",
@@ -30,8 +30,8 @@ const projects = [
   },
   {
     title: "SP26-OOP",
-    desc: "Enterprise-grade OOP implementations featuring SOLID principles, Gang of Four design patterns, and clean architecture in Java & C++.",
-    tags: ["Java", "C++", "Design Patterns", "Architecture"],
+    desc: "A deep-dive into software craftsmanship — enterprise-grade OOP implementations featuring SOLID principles, Gang of Four design patterns, and clean architecture. The kind of engineering rigor that scales from startups to FAANG.",
+    tags: ["Java", "C++", "Design Patterns", "Clean Architecture"],
     year: "2026",
     category: "Engineering",
     color: "from-primary/15 to-accent/15",
@@ -61,7 +61,7 @@ const ProjectsSection = () => {
           </div>
           <div className="flex items-end justify-between">
             <h2 className="text-3xl md:text-5xl font-bold font-display">
-              Selected <span className="gradient-text">work</span>
+              Things I've <span className="gradient-text">built</span>
             </h2>
             <p className="text-muted-foreground text-sm hidden md:block">
               {projects.length} featured projects

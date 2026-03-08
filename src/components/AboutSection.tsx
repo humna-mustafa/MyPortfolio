@@ -4,17 +4,17 @@ import { Code2, Palette, Zap, Heart } from "lucide-react";
 import CounterStat from "./CounterStat";
 
 const qualities = [
-  { icon: Code2, title: "Systems Thinker", desc: "Designing scalable architectures from database schema to pixel-perfect UI." },
-  { icon: Palette, title: "Product-Minded", desc: "Every line of code serves a user need. I ship features, not just functions." },
-  { icon: Zap, title: "High Velocity", desc: "Rapid prototyping to production. I learn fast, build faster, iterate fastest." },
-  { icon: Heart, title: "Open Source Advocate", desc: "175+ contributions. I believe in building in public and giving back." },
+  { icon: Code2, title: "Systems Thinker", desc: "I see the full picture — from database schema to pixel-perfect UI to deployment pipeline." },
+  { icon: Palette, title: "Product-Minded", desc: "Every feature I build solves a real problem for real users. I ship outcomes, not just code." },
+  { icon: Zap, title: "Fast Learner, Faster Builder", desc: "New framework? Give me a weekend. I pick up tools quickly and deliver even quicker." },
+  { icon: Heart, title: "Community Builder", desc: "175+ open-source contributions, published articles with 10K+ readers, and always building in public." },
 ];
 
 const stats = [
-  { value: 10, suffix: "+", label: "Production Projects" },
+  { value: 10, suffix: "+", label: "Projects Shipped" },
   { value: 175, suffix: "+", label: "GitHub Contributions" },
   { value: 6, suffix: "+", label: "Languages & Frameworks" },
-  { value: 3, suffix: "", label: "Platforms Shipped" },
+  { value: 10, suffix: "K+", label: "Article Readers" },
 ];
 
 const AboutSection = () => {
@@ -37,14 +37,14 @@ const AboutSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">About Me</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 leading-tight">
-            Engineering software<br />
-            <span className="gradient-text">that matters</span>
+            I build software that<br />
+            <span className="gradient-text">people actually use</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            I don't just study software engineering — I <span className="text-primary font-medium">ship it</span>. 
-            From civic-tech platforms serving real communities to developer tools used by peers across Pakistan, 
-            I build end-to-end systems with Java, TypeScript, React, and Node.js. 
-            My code is clean, my commits are atomic, and my PRs tell a story.
+            I'm Humna — a Software Engineering undergraduate at <span className="text-primary font-medium">COMSATS University Islamabad, Lahore Campus</span>, 
+            and I've been shipping production software since my first semester. While most students are still figuring out their first "Hello World," 
+            I was building <span className="text-primary font-medium">CitizenConnect</span> — a civic-tech platform now serving 500+ active users connecting 
+            citizens with local government. I think in systems, write clean code with atomic commits, and my PRs always tell a story.
           </p>
         </motion.div>
 

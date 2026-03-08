@@ -48,14 +48,14 @@ const stats = [
   { value: 6, suffix: "+", label: "Languages", icon: <Zap className="w-4 h-4" /> },
   { value: 175, suffix: "+", label: "Contributions", icon: <TrendingUp className="w-4 h-4" /> },
   { value: 10, suffix: "+", label: "Projects", icon: <Award className="w-4 h-4" /> },
-  { value: 100, suffix: "%", label: "Dedication", icon: <Rocket className="w-4 h-4" /> },
+  { value: 100, suffix: "%", label: "Passion", icon: <Rocket className="w-4 h-4" /> },
 ];
 
 const philosophyItems = [
-  { title: "Ship Fast, Ship Right", desc: "Speed without sacrificing quality" },
-  { title: "User-Obsessed", desc: "Every feature solves a real problem" },
-  { title: "Test Everything", desc: "If it's not tested, it's not done" },
-  { title: "Learn in Public", desc: "Open source, articles, and mentorship" },
+  { title: "Build to Ship", desc: "Every project leaves my desk production-ready" },
+  { title: "User First, Always", desc: "If it doesn't solve a real problem, I don't build it" },
+  { title: "Clean Code Obsessed", desc: "Atomic commits, meaningful PRs, zero shortcuts" },
+  { title: "Learn in Public", desc: "Open source, articles, and sharing what I know" },
 ];
 
 const MiniOrb = ({ color }) => {
@@ -154,10 +154,10 @@ const SkillsSection = () => {
             <div className="h-px w-12 bg-primary/50" />
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            Technical <span className="gradient-text">arsenal</span>
+            My <span className="gradient-text">toolkit</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-balance">
-            Battle-tested technologies I use to build production systems
+            The technologies I use daily to turn ideas into shipped products
           </p>
         </motion.div>
 
@@ -251,7 +251,7 @@ const SkillsSection = () => {
               >
                 <h4 className="text-xs uppercase tracking-[0.15em] text-primary font-display mb-4 flex items-center gap-2">
                   <Coffee className="w-3.5 h-3.5" />
-                  My Approach
+                  How I Work
                 </h4>
                 <div className="space-y-3">
                   {philosophyItems.map((item, i) => (

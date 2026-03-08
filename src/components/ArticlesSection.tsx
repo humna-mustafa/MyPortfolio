@@ -6,10 +6,10 @@ import articleComsatsImg from "@/assets/article-comsats.png";
 const articles = [
   {
     title: "How to Crack COMSATS Admission Test and NTS-NAT",
-    excerpt: "A data-driven guide that helped 10K+ readers prepare strategically — proving I don't just write code, I write impact.",
+    excerpt: "A data-driven, no-BS guide that helped 10,000+ students prepare strategically for Pakistan's most competitive university entrance exams. Written from experience, backed by results.",
     date: "Sep 2025",
     readTime: "4 min read",
-    tags: ["Education", "COMSATS"],
+    tags: ["Education", "Strategy"],
     url: "https://medium.com/@humna-mustafa/how-to-crack-comsats-admission-test-and-nts-nat-f8acb35beda0",
     image: articleComsatsImg,
   },
@@ -30,11 +30,11 @@ const ArticlesSection = () => {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-primary/50" />
-            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Articles</p>
+            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Writing</p>
           </div>
           <div className="flex items-end justify-between">
             <h2 className="text-3xl md:text-5xl font-bold font-display">
-              Latest <span className="gradient-text">writings</span>
+              Words that <span className="gradient-text">reach people</span>
             </h2>
             <a
               href="https://medium.com/@humna-mustafa"
@@ -42,7 +42,7 @@ const ArticlesSection = () => {
               rel="noopener noreferrer"
               className="text-sm text-primary hover:underline hidden md:flex items-center gap-1 font-display"
             >
-              View all on Medium <ArrowUpRight className="h-3.5 w-3.5" />
+              Read more on Medium <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
           </div>
         </motion.div>
@@ -110,7 +110,7 @@ const ArticlesSection = () => {
             rel="noopener noreferrer"
             className="text-sm text-primary hover:underline inline-flex items-center gap-1 font-display"
           >
-            View all on Medium <ArrowUpRight className="h-3.5 w-3.5" />
+            Read more on Medium <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
         </motion.div>
       </div>

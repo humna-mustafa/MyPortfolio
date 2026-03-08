@@ -6,41 +6,49 @@ const timeline = [
   {
     year: "2025",
     title: "Started BS Software Engineering",
-    org: "COMSATS University, Lahore",
-    description: "Began pursuing a degree in Software Engineering, focusing on programming fundamentals and mathematics.",
+    org: "COMSATS University Islamabad, Lahore Campus",
+    description: "Enrolled in one of Pakistan's top CS programs. Hit the ground running — started coding production projects from week one, not just assignments.",
     icon: GraduationCap,
     type: "education" as const,
   },
   {
     year: "2025",
     title: "First Open-Source Contributions",
-    org: "GitHub",
-    description: "Started contributing to open-source projects and building personal repositories in C++, Java, and Python.",
+    org: "GitHub · Pull Shark · YOLO · Quickdraw",
+    description: "Earned GitHub Pro status and multiple developer achievements. Built a consistent contribution habit — 175+ contributions and counting.",
     icon: Code,
     type: "career" as const,
   },
   {
     year: "2025",
-    title: "CitizenConnect Platform",
-    org: "Civic Tech Project",
-    description: "Led development of a full-stack civic engagement platform connecting citizens with local government services.",
+    title: "Launched CitizenConnect",
+    org: "Full-Stack Civic Tech Platform",
+    description: "Designed, built, and shipped a government-citizen communication platform from scratch. Now serves 500+ active users with real-time features and role-based access.",
     icon: Briefcase,
     type: "career" as const,
   },
   {
+    year: "2025",
+    title: "Published on Medium — 10K+ Readers",
+    org: "Technical Writing",
+    description: "Wrote a data-driven guide on cracking COMSATS admissions that went viral among Pakistani students. Proved that I communicate as well as I code.",
+    icon: Award,
+    type: "career" as const,
+  },
+  {
     year: "2026",
-    title: "Built PakUni App",
-    org: "University Project",
-    description: "Developed a comprehensive university information app for Pakistan's higher education system.",
+    title: "Built PakUni — University Discovery Platform",
+    org: "React · Node.js · REST APIs",
+    description: "Created Pakistan's most comprehensive university comparison tool — 200+ institutions, advanced search, and personalized recommendations. Solving a real gap in EdTech.",
     icon: Rocket,
     type: "career" as const,
   },
   {
     year: "2026",
-    title: "OOP & Design Patterns",
-    org: "COMSATS University",
-    description: "Deepened expertise in Object-Oriented Programming with Java, implementing design patterns and clean architecture.",
-    icon: Award,
+    title: "Mastered Design Patterns & Clean Architecture",
+    org: "COMSATS University · SP26-OOP",
+    description: "Deep-dived into enterprise-grade OOP — SOLID principles, Gang of Four patterns, and clean architecture in Java & C++. Building the engineering foundation that scales.",
+    icon: Code,
     type: "education" as const,
   },
 ];
@@ -64,7 +72,7 @@ const TimelineSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Journey</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            My <span className="gradient-text">timeline</span>
+            The <span className="gradient-text">story so far</span>
           </h2>
         </motion.div>
 
@@ -92,11 +100,7 @@ const TimelineSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative">
                       <div className={`flex items-center gap-2 mb-2 ${isLeft ? "md:justify-end" : ""}`}>
-                        <span className={`text-xs px-2.5 py-0.5 rounded-full font-display tracking-wider uppercase ${
-                          item.type === "education"
-                            ? "bg-primary/10 text-primary border border-primary/20"
-                            : "bg-primary/10 text-primary border border-primary/20"
-                        }`}>
+                        <span className={`text-xs px-2.5 py-0.5 rounded-full font-display tracking-wider uppercase bg-primary/10 text-primary border border-primary/20`}>
                           {item.type}
                         </span>
                         <span className="text-xs text-muted-foreground/60 font-display">{item.year}</span>
@@ -112,11 +116,7 @@ const TimelineSection = () => {
                 <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10">
                   <motion.div
                     whileHover={{ scale: 1.15 }}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${
-                      item.type === "education"
-                        ? "bg-primary/10 border-primary/30 text-primary"
-                        : "bg-primary/10 border-primary/30 text-primary"
-                    }`}
+                    className="w-12 h-12 rounded-full flex items-center justify-center border-2 bg-primary/10 border-primary/30 text-primary"
                   >
                     <Icon className="h-5 w-5" />
                   </motion.div>
