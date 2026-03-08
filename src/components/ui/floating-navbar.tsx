@@ -7,6 +7,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "../ThemeToggle";
+import logoSvg from "@/assets/logo.svg";
 
 export const FloatingNav = ({
   navItems,
