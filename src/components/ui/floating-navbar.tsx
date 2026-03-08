@@ -6,6 +6,8 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
+import { FileText } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
 import logoSvg from "@/assets/logo.svg";
 
@@ -19,6 +21,7 @@ export const FloatingNav = ({
   }[];
   className?: string;
 }) => {
+  const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [activeSection, setActiveSection] = useState("");
@@ -124,9 +127,14 @@ export const FloatingNav = ({
               </a>
             ))}
 
-            <div className="ml-2 pl-2 border-l border-border">
-              <ThemeToggle />
-            </div>
+            <button
+              onClick={() => navigate("/resume")}
+              className="ml-2 pl-2 border-l border-border inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors rounded-lg"
+            >
+              <FileText className="h-4 w-4" />
+              Resume
+            </button>
+            <ThemeToggle />
           </nav>
 
           {/* Mobile Nav */}
@@ -153,9 +161,13 @@ export const FloatingNav = ({
                 )}
               </a>
             ))}
-            <div className="ml-1">
-              <ThemeToggle />
-            </div>
+            <button
+              onClick={() => navigate("/resume")}
+              className="ml-1 px-2 py-1.5 text-xs font-medium text-primary"
+            >
+              <FileText className="h-3.5 w-3.5" />
+            </button>
+            <ThemeToggle />
           </nav>
         </motion.div>
       </motion.div>
