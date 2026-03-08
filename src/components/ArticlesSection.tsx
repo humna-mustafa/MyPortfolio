@@ -4,25 +4,12 @@ import { ArrowUpRight, BookOpen } from "lucide-react";
 
 const articles = [
   {
-    title: "Getting Started with Object-Oriented Programming in Java",
-    excerpt: "A beginner-friendly guide to understanding OOP principles, design patterns, and clean architecture in Java.",
-    date: "2026",
+    title: "How to Crack COMSATS Admission Test and NTS-NAT",
+    excerpt: "Proven strategy and tips for COMSATS and NTS-NAT Test — Prepare smart, not hard.",
+    date: "2025",
     readTime: "5 min read",
-    tags: ["Java", "OOP"],
-  },
-  {
-    title: "Building Civic Tech: Lessons from CitizenConnect",
-    excerpt: "How we designed a platform to bridge the gap between citizens and local government services.",
-    date: "2026",
-    readTime: "7 min read",
-    tags: ["Full Stack", "Community"],
-  },
-  {
-    title: "Navigating Pakistan's Higher Education System with Tech",
-    excerpt: "The story behind PakUni — a mobile app helping students make informed university decisions.",
-    date: "2026",
-    readTime: "6 min read",
-    tags: ["Mobile", "Education"],
+    tags: ["Education", "COMSATS"],
+    url: "https://medium.com/@humna-mustafa/how-to-crack-comsats-admission-test-and-nts-nat-f8acb35beda0",
   },
 ];
 
