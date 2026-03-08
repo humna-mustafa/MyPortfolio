@@ -55,7 +55,7 @@ const ContactSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Contact</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            Let's <span className="gradient-text">connect</span>
+            Let's <span className="gradient-text">build together</span>
           </h2>
         </motion.div>
 
