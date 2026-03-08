@@ -1,44 +1,45 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { useRef, useState } from "react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
     title: "Flowboard",
     desc: "A real-time collaborative project management tool with drag-and-drop kanban boards, live cursors, and team chat.",
     tags: ["React", "TypeScript", "WebSockets", "PostgreSQL"],
-    color: "from-primary/20 to-accent/10",
-    featured: true,
+    year: "2025",
+    category: "Full-Stack",
   },
   {
     title: "PixelPerfect",
     desc: "AI-powered design-to-code tool that converts Figma files into production-ready React components.",
     tags: ["Next.js", "Python", "OpenAI", "Figma API"],
-    color: "from-accent/20 to-primary/10",
-    featured: true,
+    year: "2024",
+    category: "AI / ML",
   },
   {
     title: "EcoTrack",
     desc: "Carbon footprint tracker with personalized sustainability recommendations and community challenges.",
     tags: ["React Native", "Node.js", "MongoDB"],
-    color: "from-primary/15 to-accent/5",
-    featured: false,
+    year: "2024",
+    category: "Mobile",
   },
   {
     title: "Synthwave",
     desc: "Open-source music visualization engine with WebGL shaders and real-time audio analysis.",
     tags: ["Three.js", "WebAudio", "GLSL"],
-    color: "from-accent/15 to-primary/5",
-    featured: false,
+    year: "2023",
+    category: "Creative",
   },
 ];
 
 const ProjectsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="section-padding" ref={ref}>
+    <section id="projects" className="section-padding relative" ref={ref}>
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -46,51 +47,60 @@ const ProjectsSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <p className="text-sm tracking-[0.2em] uppercase text-primary font-display mb-3">Projects</p>
-          <h2 className="text-3xl md:text-5xl font-bold font-display">
-            Selected <span className="gradient-text">work</span>
-          </h2>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-12 bg-primary/50" />
+            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Projects</p>
+          </div>
+          <div className="flex items-end justify-between">
+            <h2 className="text-3xl md:text-5xl font-bold font-display">
+              Selected <span className="gradient-text">work</span>
+            </h2>
+            <p className="text-muted-foreground text-sm hidden md:block">
+              {projects.length} featured projects
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Project list - editorial style */}
+        <div className="space-y-0">
           {projects.map((p, i) => (
             <motion.div
               key={p.title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.15 * i, duration: 0.5 }}
-              className={`glass-card border border-border overflow-hidden hover-lift group ${
-                p.featured ? "md:col-span-1" : ""
-              }`}
+              transition={{ delay: 0.1 * i, duration: 0.5 }}
+              onMouseEnter={() => setHoveredIdx(i)}
+              onMouseLeave={() => setHoveredIdx(null)}
+              className="group cursor-hover border-t border-border last:border-b"
             >
-              <div className={`h-48 bg-gradient-to-br ${p.color} flex items-center justify-center relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.1),transparent_70%)]" />
-                <span className="font-display text-2xl font-bold text-foreground/20 group-hover:text-foreground/30 transition-colors">
-                  {p.title}
-                </span>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-display text-xl font-semibold">{p.title}</h3>
-                  <div className="flex gap-2">
-                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                      <Github className="h-4 w-4" />
-                    </a>
-                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                      <ExternalLink className="h-4 w-4" />
-                    </a>
+              <div className="flex items-center justify-between py-8 md:py-10 px-2 transition-all duration-300 group-hover:px-6">
+                <div className="flex-1">
+                  <div className="flex items-center gap-4 mb-2">
+                    <span className="text-xs font-display text-muted-foreground/60 tracking-wider uppercase">{p.year}</span>
+                    <span className="text-xs px-2.5 py-0.5 rounded-full border border-border text-muted-foreground font-display">{p.category}</span>
                   </div>
+                  <h3 className="font-display text-2xl md:text-3xl font-bold group-hover:gradient-text transition-all duration-300">{p.title}</h3>
+                  <motion.div
+                    initial={false}
+                    animate={{ height: hoveredIdx === i ? "auto" : 0, opacity: hoveredIdx === i ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-sm text-muted-foreground mt-3 max-w-lg leading-relaxed">{p.desc}</p>
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {p.tags.map((t) => (
+                        <span key={t} className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium">{t}</span>
+                      ))}
+                    </div>
+                  </motion.div>
                 </div>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{p.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium"
-                    >
-                      {t}
-                    </span>
-                  ))}
+                <div className="flex items-center gap-3 ml-6">
+                  <motion.div
+                    animate={{ rotate: hoveredIdx === i ? 0 : -45, scale: hoveredIdx === i ? 1 : 0.8, opacity: hoveredIdx === i ? 1 : 0.4 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ArrowUpRight className="h-6 w-6 text-primary" />
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
