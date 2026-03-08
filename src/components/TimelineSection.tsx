@@ -4,7 +4,7 @@ import { GraduationCap, Briefcase, Code, Rocket, Award } from "lucide-react";
 
 const timeline = [
   {
-    year: "2023",
+    year: "2025",
     title: "Started BS Software Engineering",
     org: "COMSATS University, Lahore",
     description: "Began pursuing a degree in Software Engineering, focusing on programming fundamentals and mathematics.",
@@ -12,7 +12,7 @@ const timeline = [
     type: "education" as const,
   },
   {
-    year: "2024",
+    year: "2025",
     title: "First Open-Source Contributions",
     org: "GitHub",
     description: "Started contributing to open-source projects and building personal repositories in C++, Java, and Python.",
@@ -21,6 +21,14 @@ const timeline = [
   },
   {
     year: "2025",
+    title: "CitizenConnect Platform",
+    org: "Civic Tech Project",
+    description: "Led development of a full-stack civic engagement platform connecting citizens with local government services.",
+    icon: Briefcase,
+    type: "career" as const,
+  },
+  {
+    year: "2026",
     title: "Built PakUni App",
     org: "University Project",
     description: "Developed a comprehensive university information app for Pakistan's higher education system.",
@@ -28,22 +36,15 @@ const timeline = [
     type: "career" as const,
   },
   {
-    year: "2025",
+    year: "2026",
     title: "OOP & Design Patterns",
     org: "COMSATS University",
     description: "Deepened expertise in Object-Oriented Programming with Java, implementing design patterns and clean architecture.",
     icon: Award,
     type: "education" as const,
   },
-  {
-    year: "2026",
-    title: "CitizenConnect Platform",
-    org: "Civic Tech Project",
-    description: "Led development of a full-stack civic engagement platform connecting citizens with local government services.",
-    icon: Briefcase,
-    type: "career" as const,
-  },
 ];
+
 
 const TimelineSection = () => {
   const ref = useRef(null);

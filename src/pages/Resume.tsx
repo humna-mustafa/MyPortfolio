@@ -64,7 +64,7 @@ const Resume = () => {
               {
                 title: "BS Software Engineering",
                 subtitle: "COMSATS University Islamabad — Lahore Campus",
-                date: "2023 – 2027 (Expected)",
+                date: "2025 – 2029 (Expected)",
                 details: ["Relevant coursework: OOP, Data Structures, Algorithms, Database Systems, Software Design"],
               },
             ]}

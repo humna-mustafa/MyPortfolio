@@ -10,7 +10,7 @@ const projects = [
     title: "CitizenConnect",
     desc: "A civic engagement platform connecting citizens with local government services, enabling transparent communication and community participation.",
     tags: ["Full Stack", "Web App", "Community"],
-    year: "2026",
+    year: "2025",
     category: "Web App",
     color: "from-primary/20 to-accent/10",
     number: "01",
