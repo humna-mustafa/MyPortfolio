@@ -1,54 +1,31 @@
 // @ts-nocheck
-import { motion, useInView, animate } from "framer-motion";
-import { useRef, useEffect, useState, Suspense } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
-import { Code2, Server, Wrench, Zap, TrendingUp, Award, Coffee, Rocket } from "lucide-react";
+import { Code2, Server, Wrench, Database, Globe, Terminal, Coffee } from "lucide-react";
 
 const skillGroups = [
   {
     title: "Languages",
     icon: <Code2 className="w-5 h-5 text-primary" />,
-    skills: [
-      { name: "Java", level: 90 },
-      { name: "C++", level: 85 },
-      { name: "C", level: 80 },
-      { name: "Python", level: 85 },
-      { name: "JavaScript", level: 75 },
-      { name: "TypeScript", level: 70 },
-    ],
+    skills: ["Java", "C++", "C", "Python", "JavaScript", "TypeScript"],
   },
   {
     title: "Web & Frameworks",
-    icon: <Server className="w-5 h-5 text-primary" />,
-    skills: [
-      { name: "React", level: 75 },
-      { name: "Node.js", level: 70 },
-      { name: "HTML/CSS", level: 85 },
-      { name: "Tailwind CSS", level: 80 },
-      { name: "REST APIs", level: 78 },
-      { name: "SQL / Databases", level: 80 },
-    ],
+    icon: <Globe className="w-5 h-5 text-primary" />,
+    skills: ["React", "Node.js", "HTML/CSS", "Tailwind CSS", "REST APIs", "Vite"],
+  },
+  {
+    title: "Databases & Backend",
+    icon: <Database className="w-5 h-5 text-primary" />,
+    skills: ["SQL", "Firebase", "Supabase", "MongoDB"],
   },
   {
     title: "Tools & Platforms",
     icon: <Wrench className="w-5 h-5 text-primary" />,
-    skills: [
-      { name: "Git & GitHub", level: 88 },
-      { name: "VS Code", level: 90 },
-      { name: "Linux", level: 75 },
-      { name: "Figma", level: 70 },
-      { name: "Firebase", level: 72 },
-      { name: "Docker", level: 65 },
-    ],
+    skills: ["Git & GitHub", "VS Code", "Linux", "Figma", "Docker", "Vercel"],
   },
-];
-
-const stats = [
-  { value: 6, suffix: "+", label: "Languages", icon: <Zap className="w-4 h-4" /> },
-  { value: 175, suffix: "+", label: "Contributions", icon: <TrendingUp className="w-4 h-4" /> },
-  { value: 10, suffix: "+", label: "Projects", icon: <Award className="w-4 h-4" /> },
-  { value: 100, suffix: "%", label: "Passion", icon: <Rocket className="w-4 h-4" /> },
 ];
 
 const philosophyItems = [
@@ -76,59 +53,18 @@ const MiniOrb = ({ color }) => {
   );
 };
 
-const AnimatedCounter = ({ value, suffix, delay, inView }: { value: number; suffix: string; delay: number; inView: boolean }) => {
-  const [display, setDisplay] = useState(0);
-  useEffect(() => {
-    if (inView) {
-      const timer = setTimeout(() => {
-        const controls = animate(0, value, {
-          duration: 2,
-          ease: "easeOut",
-          onUpdate: (v) => setDisplay(Math.floor(v)),
-        });
-        return () => controls.stop();
-      }, delay * 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [inView, value, delay]);
-  return <>{display}{suffix}</>;
-};
-
-const SkillBar = ({ name, level, delay }: { name: string; level: number; delay: number }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: -20 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ delay, duration: 0.4 }}
-      className="group"
-    >
-      <div className="flex items-center justify-between mb-1.5">
-        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{name}</span>
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: delay + 0.3 }}
-          className="text-xs text-muted-foreground font-mono"
-        >
-          {level}%
-        </motion.span>
-      </div>
-      <div className="h-1.5 rounded-full bg-muted/50 overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={inView ? { width: `${level}%` } : {}}
-          transition={{ delay: delay + 0.1, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="h-full rounded-full"
-          style={{ background: "var(--gradient-primary)" }}
-        />
-      </div>
-    </motion.div>
-  );
-};
+const SkillChip = ({ name, delay }: { name: string; delay: number }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ delay, duration: 0.3, ease: "easeOut" }}
+    whileHover={{ scale: 1.05, y: -2 }}
+    className="px-4 py-2.5 rounded-xl bg-muted/40 border border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all duration-200 text-sm font-medium text-foreground cursor-default select-none"
+  >
+    {name}
+  </motion.div>
+);
 
 const SkillsSection = () => {
   const ref = useRef(null);
@@ -136,7 +72,6 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="section-padding relative overflow-hidden" ref={ref}>
-      {/* Background effects */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px] -translate-x-1/2 translate-y-1/2 pointer-events-none" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
 
@@ -150,40 +85,39 @@ const SkillsSection = () => {
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-12 bg-primary/50" />
-            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Skills</p>
+            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Tech Stack</p>
             <div className="h-px w-12 bg-primary/50" />
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            My <span className="gradient-text">toolkit</span>
+            My <span className="gradient-text">Toolkit</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-balance">
-            The technologies I use daily to turn ideas into shipped products
+            Technologies and tools I work with to bring ideas to life
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-          {/* Skill groups - left */}
+          {/* Skill groups */}
           <div className="lg:col-span-8 space-y-6">
             {skillGroups.map((group, gi) => (
               <motion.div
                 key={group.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + gi * 0.15, duration: 0.5 }}
-                className="glass-card p-6 md:p-8 group/card hover:border-primary/20 transition-colors"
+                transition={{ delay: 0.2 + gi * 0.12, duration: 0.5 }}
+                className="glass-card p-6 md:p-8 hover:border-primary/20 transition-colors"
               >
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-5">
                   {group.icon}
                   <h3 className="font-display font-semibold text-lg gradient-text">{group.title}</h3>
                   <div className="h-px flex-1 bg-border" />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                <div className="flex flex-wrap gap-3">
                   {group.skills.map((skill, si) => (
-                    <SkillBar
-                      key={skill.name}
-                      name={skill.name}
-                      level={skill.level}
-                      delay={0.3 + gi * 0.1 + si * 0.05}
+                    <SkillChip
+                      key={skill}
+                      name={skill}
+                      delay={0.25 + gi * 0.08 + si * 0.04}
                     />
                   ))}
                 </div>
@@ -191,7 +125,7 @@ const SkillsSection = () => {
             ))}
           </div>
 
-          {/* Right sidebar - stacked cards */}
+          {/* Right sidebar */}
           <div className="lg:col-span-4 hidden lg:block">
             <div className="sticky top-32 space-y-6">
               {/* 3D Orb */}
@@ -214,39 +148,11 @@ const SkillsSection = () => {
                 </div>
               </motion.div>
 
-              {/* Stats grid */}
+              {/* Philosophy card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="glass-card p-5"
-              >
-                <div className="grid grid-cols-2 gap-3">
-                  {stats.map((stat, i) => (
-                    <motion.div
-                      key={stat.label}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={inView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 0.6 + i * 0.1 }}
-                      className="relative p-3 rounded-xl bg-muted/30 border border-border/50 hover:border-primary/30 transition-colors group text-center"
-                    >
-                      <div className="flex items-center justify-center gap-1.5 mb-1">
-                        <span className="text-primary/60 group-hover:text-primary transition-colors">{stat.icon}</span>
-                      </div>
-                      <div className="text-2xl font-bold font-display gradient-text">
-                        <AnimatedCounter value={stat.value} suffix={stat.suffix} delay={0.7 + i * 0.1} inView={inView} />
-                      </div>
-                      <div className="text-[11px] text-muted-foreground mt-0.5 font-display tracking-wide uppercase">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Philosophy / approach card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.7, duration: 0.5 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
                 className="glass-card p-5"
               >
                 <h4 className="text-xs uppercase tracking-[0.15em] text-primary font-display mb-4 flex items-center gap-2">
@@ -259,7 +165,7 @@ const SkillsSection = () => {
                       key={item.title}
                       initial={{ opacity: 0, x: -10 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ delay: 0.8 + i * 0.08 }}
+                      transition={{ delay: 0.7 + i * 0.08 }}
                       className="flex items-start gap-3 group"
                     >
                       <div className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary mt-1.5 transition-colors shrink-0" />
