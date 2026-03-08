@@ -48,18 +48,18 @@ const ResumeSection = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="#"
+                href="/resume"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-display font-medium text-sm hover:opacity-90 transition-opacity"
               >
                 <Download className="h-4 w-4 group-hover:animate-bounce" />
                 Download PDF
               </a>
               <a
-                href="#"
+                href="/resume"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-foreground font-display font-medium text-sm hover:bg-primary/5 transition-colors"
               >
                 <ExternalLink className="h-4 w-4" />
-                View Online
+                View Resume
               </a>
             </div>
           </div>
