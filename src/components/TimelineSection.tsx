@@ -94,7 +94,7 @@ const TimelineSection = () => {
                       <div className={`flex items-center gap-2 mb-2 ${isLeft ? "md:justify-end" : ""}`}>
                         <span className={`text-xs px-2.5 py-0.5 rounded-full font-display tracking-wider uppercase ${
                           item.type === "education"
-                            ? "bg-accent/10 text-accent border border-accent/20"
+                            ? "bg-primary/10 text-primary border border-primary/20"
                             : "bg-primary/10 text-primary border border-primary/20"
                         }`}>
                           {item.type}
@@ -114,7 +114,7 @@ const TimelineSection = () => {
                     whileHover={{ scale: 1.15 }}
                     className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${
                       item.type === "education"
-                        ? "bg-accent/10 border-accent/30 text-accent"
+                        ? "bg-primary/10 border-primary/30 text-primary"
                         : "bg-primary/10 border-primary/30 text-primary"
                     }`}
                   >
