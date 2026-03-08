@@ -101,7 +101,7 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom area - scroll + socials, pinned to bottom */}
-      <div className="relative z-10 pb-8 flex flex-col items-center gap-5">
+      <div className="relative z-10 pb-8 flex flex-col items-center gap-8">
         <motion.a
           href="#about"
           initial={{ opacity: 0 }}
