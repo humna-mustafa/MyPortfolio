@@ -94,7 +94,7 @@ const TimelineSection = () => {
                       <div className={`flex items-center gap-2 mb-2 ${isLeft ? "md:justify-end" : ""}`}>
                         <span className={`text-xs px-2.5 py-0.5 rounded-full font-display tracking-wider uppercase ${
                           item.type === "education"
-                            ? "bg-accent/10 text-accent border border-accent/20"
+                            ? "bg-primary/10 text-primary border border-primary/20"
                             : "bg-primary/10 text-primary border border-primary/20"
                         }`}>
                           {item.type}
