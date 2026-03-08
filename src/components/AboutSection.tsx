@@ -37,14 +37,14 @@ const AboutSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">About Me</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 leading-tight">
-            I build software that<br />
-            <span className="gradient-text">people actually use</span>
+            I learn by <span className="gradient-text">building things</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            I'm Humna — a Software Engineering undergraduate at <span className="text-primary font-medium">COMSATS University Islamabad, Lahore Campus</span>, 
-            and I've been shipping production software since my first semester. While most students are still figuring out their first "Hello World," 
-            I was building <span className="text-primary font-medium">CitizenConnect</span> — a civic-tech platform now serving 500+ active users connecting 
-            citizens with local government. I think in systems, write clean code with atomic commits, and my PRs always tell a story.
+            I'm Humna — a first-year Software Engineering student at <span className="text-primary font-medium">COMSATS University Islamabad, Lahore Campus</span>. 
+            Most students wait until third year to start building — I started in my first semester. I've already built full-stack web apps, 
+            explored design patterns and clean architecture in <span className="text-primary font-medium">Java & C++</span>, and earned multiple 
+            GitHub achievements through consistent open-source contributions. I'm not where I want to be yet — but I'm learning fast, 
+            building every day, and obsessed with writing code that's clean, maintainable, and meaningful.
           </p>
         </motion.div>
 
