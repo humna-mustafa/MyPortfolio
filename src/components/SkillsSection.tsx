@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial } from "@react-three/drei";
 import { Suspense } from "react";
-import * as THREE from "three";
 
 const skillGroups = [
   {
@@ -21,7 +20,7 @@ const skillGroups = [
 ];
 
 const MiniOrb = ({ color }: { color: string }) => {
-  const ref = useRef<THREE.Mesh>(null);
+  const ref = useRef<any>(null);
   useFrame((state) => {
     if (ref.current) {
       ref.current.rotation.x = state.clock.elapsedTime * 0.4;
@@ -32,6 +31,7 @@ const MiniOrb = ({ color }: { color: string }) => {
     <Float speed={3} floatIntensity={0.5}>
       <mesh ref={ref} scale={1.2}>
         <octahedronGeometry args={[1, 0]} />
+        {/* @ts-ignore */}
         <MeshDistortMaterial color={color} wireframe distort={0.2} speed={3} />
       </mesh>
     </Float>

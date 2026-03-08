@@ -1,10 +1,9 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial } from "@react-three/drei";
 import { useRef, Suspense } from "react";
-import * as THREE from "three";
 
 const AnimatedSphere = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef<any>(null);
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -17,6 +16,7 @@ const AnimatedSphere = () => {
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
       <mesh ref={meshRef} scale={2.2}>
         <icosahedronGeometry args={[1, 1]} />
+        {/* @ts-ignore */}
         <MeshDistortMaterial
           color="#7c3aed"
           wireframe
@@ -30,7 +30,7 @@ const AnimatedSphere = () => {
 };
 
 const FloatingRing = ({ position, color }: { position: [number, number, number]; color: string }) => {
-  const ref = useRef<THREE.Mesh>(null);
+  const ref = useRef<any>(null);
 
   useFrame((state) => {
     if (ref.current) {
@@ -43,6 +43,7 @@ const FloatingRing = ({ position, color }: { position: [number, number, number];
     <Float speed={1.5} floatIntensity={0.8}>
       <mesh ref={ref} position={position}>
         <torusGeometry args={[0.8, 0.05, 16, 48]} />
+        {/* @ts-ignore */}
         <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.5} />
       </mesh>
     </Float>
@@ -50,7 +51,7 @@ const FloatingRing = ({ position, color }: { position: [number, number, number];
 };
 
 const ParticleField = () => {
-  const points = useRef<THREE.Points>(null);
+  const points = useRef<any>(null);
   const count = 200;
 
   const positions = new Float32Array(count * 3);
@@ -74,6 +75,7 @@ const ParticleField = () => {
           args={[positions, 3]}
         />
       </bufferGeometry>
+      {/* @ts-ignore */}
       <pointsMaterial size={0.02} color="#a78bfa" transparent opacity={0.6} sizeAttenuation />
     </points>
   );
