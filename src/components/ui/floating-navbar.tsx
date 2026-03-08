@@ -88,13 +88,13 @@ export const FloatingNav = ({
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-0.5">
-            <div className="flex items-center bg-muted/50 rounded-xl p-1 mr-3">
+            <div className="relative flex items-center bg-muted/60 rounded-xl p-1 mr-3">
               {navItems.map((navItem, idx) => (
                 <a
                   key={`nav-${idx}`}
                   href={navItem.link}
                   className={cn(
-                    "relative px-5 py-2 text-sm font-medium transition-all duration-300 rounded-lg",
+                    "relative z-10 px-5 py-2 text-sm font-medium transition-colors duration-300 rounded-lg",
                     activeSection === navItem.link
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -104,7 +104,8 @@ export const FloatingNav = ({
                   {activeSection === navItem.link && (
                     <motion.div
                       layoutId="active-pill"
-                      className="absolute inset-0 rounded-lg bg-background shadow-sm border border-border/50 -z-10"
+                      className="absolute inset-0 rounded-lg bg-background shadow-[0_1px_3px_0_rgb(0_0_0/0.1),0_1px_2px_-1px_rgb(0_0_0/0.1)] border border-border"
+                      style={{ zIndex: -1 }}
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
