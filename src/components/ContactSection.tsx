@@ -1,11 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, MapPin, Mail, ArrowUpRight } from "lucide-react";
+import MagneticButton from "./MagneticButton";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [sent, setSent] = useState(false);
+  const [focused, setFocused] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,27 +15,35 @@ const ContactSection = () => {
     setTimeout(() => setSent(false), 3000);
   };
 
+  const inputClasses = "w-full px-4 py-3 rounded-xl bg-background/50 border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all placeholder:text-muted-foreground/50";
+
   return (
-    <section id="contact" className="section-padding" ref={ref}>
-      <div className="max-w-5xl mx-auto">
+    <section id="contact" className="section-padding relative overflow-hidden" ref={ref}>
+      {/* Background elements */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/3 blur-[150px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <p className="text-sm tracking-[0.2em] uppercase text-primary font-display mb-3">Contact</p>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-12 bg-primary/50" />
+            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Contact</p>
+          </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
             Let's <span className="gradient-text">connect</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="space-y-8"
+            className="lg:col-span-2 space-y-8"
           >
             <p className="text-muted-foreground text-lg leading-relaxed">
               I'm always open to new opportunities, collaborations, and
@@ -42,23 +52,36 @@ const ContactSection = () => {
             </p>
 
             <div className="space-y-4">
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Mail className="h-4 w-4 text-primary" />
+              <motion.div
+                whileHover={{ x: 4 }}
+                className="flex items-center gap-3 text-muted-foreground group cursor-pointer"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Mail className="h-4 w-4 text-primary" />
+                </div>
                 <span className="text-sm">sarah@example.com</span>
-              </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="h-4 w-4 text-primary" />
+              </motion.div>
+              <motion.div
+                whileHover={{ x: 4 }}
+                className="flex items-center gap-3 text-muted-foreground group cursor-pointer"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <MapPin className="h-4 w-4 text-primary" />
+                </div>
                 <span className="text-sm">San Francisco, CA</span>
-              </div>
+              </motion.div>
             </div>
 
-            <motion.a
-              href="#"
-              whileHover={{ x: 4 }}
-              className="inline-flex items-center gap-2 text-primary font-display font-medium"
-            >
-              View my resume <ArrowUpRight className="h-4 w-4" />
-            </motion.a>
+            <div className="pt-4">
+              <MagneticButton
+                as="a"
+                href="#"
+                className="inline-flex items-center gap-2 text-primary font-display font-medium text-sm group"
+              >
+                View my resume 
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </MagneticButton>
+            </div>
           </motion.div>
 
           <motion.form
@@ -66,45 +89,38 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="glass-card border border-border p-8 space-y-5"
+            className="lg:col-span-3 glass-card border border-border p-8 space-y-5 relative overflow-hidden"
           >
-            <div>
-              <label className="text-sm font-medium text-foreground mb-1.5 block">Name</label>
-              <input
-                type="text"
-                required
-                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                placeholder="Your name"
-              />
+            {/* Form gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-accent/[0.02] pointer-events-none" />
+
+            <div className="relative space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-display font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Name</label>
+                  <input type="text" required className={inputClasses} placeholder="Your name" />
+                </div>
+                <div>
+                  <label className="text-xs font-display font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Email</label>
+                  <input type="email" required className={inputClasses} placeholder="your@email.com" />
+                </div>
+              </div>
+              <div>
+                <label className="text-xs font-display font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Subject</label>
+                <input type="text" required className={inputClasses} placeholder="What's this about?" />
+              </div>
+              <div>
+                <label className="text-xs font-display font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Message</label>
+                <textarea required rows={5} className={`${inputClasses} resize-none`} placeholder="Tell me about your project..." />
+              </div>
+              <MagneticButton
+                className="w-full py-3.5 rounded-xl bg-primary text-primary-foreground font-display font-medium text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90"
+              >
+                {sent ? "Message Sent! ✓" : (
+                  <>Send Message <Send className="h-4 w-4" /></>
+                )}
+              </MagneticButton>
             </div>
-            <div>
-              <label className="text-sm font-medium text-foreground mb-1.5 block">Email</label>
-              <input
-                type="email"
-                required
-                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                placeholder="your@email.com"
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-foreground mb-1.5 block">Message</label>
-              <textarea
-                required
-                rows={4}
-                className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
-                placeholder="Tell me about your project..."
-              />
-            </div>
-            <motion.button
-              type="submit"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-display font-medium text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90"
-            >
-              {sent ? "Message Sent! ✓" : (
-                <>Send Message <Send className="h-4 w-4" /></>
-              )}
-            </motion.button>
           </motion.form>
         </div>
       </div>
