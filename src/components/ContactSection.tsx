@@ -113,13 +113,14 @@ const ContactSection = () => {
                 <label className="text-xs font-display font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Message</label>
                 <textarea required rows={5} className={`${inputClasses} resize-none`} placeholder="Tell me about your project..." />
               </div>
-              <MagneticButton
-                className="w-full py-3.5 rounded-xl bg-primary text-primary-foreground font-display font-medium text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90"
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-display font-medium text-sm hover:opacity-90 transition-opacity"
               >
                 {sent ? "Message Sent! ✓" : (
                   <>Send Message <Send className="h-4 w-4" /></>
                 )}
-              </MagneticButton>
+              </button>
             </div>
           </motion.form>
         </div>
