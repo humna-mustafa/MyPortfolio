@@ -4,17 +4,17 @@ import { Code2, Palette, Zap, Heart } from "lucide-react";
 import CounterStat from "./CounterStat";
 
 const qualities = [
-  { icon: Code2, title: "Full Stack Dev", desc: "Building end-to-end user-centered applications with modern technologies." },
-  { icon: Palette, title: "Problem Solver", desc: "Transforming complex challenges into elegant, efficient software solutions." },
-  { icon: Zap, title: "Fast Learner", desc: "Continuously exploring emerging technologies and adapting to new tools." },
-  { icon: Heart, title: "Team Player", desc: "Collaborating effectively to deliver impactful projects on time." },
+  { icon: Code2, title: "Systems Thinker", desc: "Designing scalable architectures from database schema to pixel-perfect UI." },
+  { icon: Palette, title: "Product-Minded", desc: "Every line of code serves a user need. I ship features, not just functions." },
+  { icon: Zap, title: "High Velocity", desc: "Rapid prototyping to production. I learn fast, build faster, iterate fastest." },
+  { icon: Heart, title: "Open Source Advocate", desc: "175+ contributions. I believe in building in public and giving back." },
 ];
 
 const stats = [
-  { value: 10, suffix: "+", label: "Projects Built" },
+  { value: 10, suffix: "+", label: "Production Projects" },
   { value: 175, suffix: "+", label: "GitHub Contributions" },
-  { value: 4, suffix: "+", label: "Languages" },
-  { value: 100, suffix: "%", label: "Dedication" },
+  { value: 6, suffix: "+", label: "Languages & Frameworks" },
+  { value: 3, suffix: "", label: "Platforms Shipped" },
 ];
 
 const AboutSection = () => {
