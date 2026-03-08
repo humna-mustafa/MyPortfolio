@@ -114,7 +114,7 @@ const TimelineSection = () => {
                     whileHover={{ scale: 1.15 }}
                     className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${
                       item.type === "education"
-                        ? "bg-accent/10 border-accent/30 text-accent"
+                        ? "bg-primary/10 border-primary/30 text-primary"
                         : "bg-primary/10 border-primary/30 text-primary"
                     }`}
                   >
