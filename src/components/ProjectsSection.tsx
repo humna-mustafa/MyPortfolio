@@ -1,51 +1,37 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import flowboardImg from "@/assets/project-flowboard.jpg";
-import pixelperfectImg from "@/assets/project-pixelperfect.jpg";
-import ecotrackImg from "@/assets/project-ecotrack.jpg";
-import synthwaveImg from "@/assets/project-synthwave.jpg";
 
 const projects = [
   {
-    title: "Flowboard",
-    desc: "A real-time collaborative project management tool with drag-and-drop kanban boards, live cursors, and team chat.",
-    tags: ["React", "TypeScript", "WebSockets", "PostgreSQL"],
-    year: "2025",
-    category: "Full-Stack",
+    title: "CitizenConnect",
+    desc: "A civic engagement platform connecting citizens with local government services, enabling transparent communication and community participation.",
+    tags: ["Full Stack", "Web App", "Community"],
+    year: "2026",
+    category: "Web App",
     color: "from-primary/20 to-accent/10",
     number: "01",
-    image: flowboardImg,
+    link: "https://github.com/humna-mustafa/citizenconnect",
   },
   {
-    title: "PixelPerfect",
-    desc: "AI-powered design-to-code tool that converts Figma files into production-ready React components.",
-    tags: ["Next.js", "Python", "OpenAI", "Figma API"],
-    year: "2024",
-    category: "AI / ML",
+    title: "PakUni",
+    desc: "A comprehensive university information app providing students with resources, guidance, and tools for Pakistan's higher education system.",
+    tags: ["Mobile", "Education", "UI/UX"],
+    year: "2026",
+    category: "App",
     color: "from-accent/20 to-primary/10",
     number: "02",
-    image: pixelperfectImg,
+    link: "https://github.com/humna-mustafa/PakUni",
   },
   {
-    title: "EcoTrack",
-    desc: "Carbon footprint tracker with personalized sustainability recommendations and community challenges.",
-    tags: ["React Native", "Node.js", "MongoDB"],
-    year: "2024",
-    category: "Mobile",
+    title: "SP26-OOP",
+    desc: "Object-Oriented Programming projects and assignments built with Java, demonstrating design patterns and clean architecture principles.",
+    tags: ["Java", "OOP", "Design Patterns"],
+    year: "2026",
+    category: "Academic",
     color: "from-primary/15 to-accent/15",
     number: "03",
-    image: ecotrackImg,
-  },
-  {
-    title: "Synthwave",
-    desc: "Open-source music visualization engine with WebGL shaders and real-time audio analysis.",
-    tags: ["Three.js", "WebAudio", "GLSL"],
-    year: "2023",
-    category: "Creative",
-    color: "from-accent/15 to-primary/20",
-    number: "04",
-    image: synthwaveImg,
+    link: "https://github.com/humna-mustafa/SP26-OOP",
   },
 ];
 
@@ -79,39 +65,31 @@ const ProjectsSection = () => {
 
         <div className="space-y-4">
           {projects.map((p, i) => (
-            <motion.div
+            <motion.a
               key={p.title}
+              href={p.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * i, duration: 0.5 }}
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
-              className="group cursor-pointer relative"
+              className="group cursor-pointer relative block"
             >
               <div className={`relative overflow-hidden rounded-2xl border border-border transition-all duration-500 ${hoveredIdx === i ? 'border-primary/30 shadow-[0_0_40px_-15px_hsl(var(--primary)/0.2)]' : 'hover:border-border/80'}`}>
-                {/* Gradient background on hover */}
                 <motion.div
                   className={`absolute inset-0 bg-gradient-to-r ${p.color} opacity-0 transition-opacity duration-500`}
                   animate={{ opacity: hoveredIdx === i ? 1 : 0 }}
                 />
 
                 <div className="relative flex items-center justify-between py-5 md:py-6 px-5 md:px-8 gap-4 md:gap-6">
-                  {/* Thumbnail */}
-                  <motion.div
-                    className="hidden sm:block shrink-0 w-16 h-16 md:w-24 md:h-24 rounded-xl overflow-hidden border border-border/50"
-                    animate={{
-                      scale: hoveredIdx === i ? 1.05 : 1,
-                    }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </motion.div>
+                  {/* Number badge */}
+                  <div className="hidden sm:flex shrink-0 w-16 h-16 md:w-24 md:h-24 rounded-xl border border-border/50 items-center justify-center bg-muted/30">
+                    <span className="text-2xl md:text-3xl font-bold font-display text-primary/40">{p.number}</span>
+                  </div>
 
-                  {/* Center: Content */}
+                  {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-1">
                       <span className="text-xs font-display text-muted-foreground/60 tracking-wider uppercase">{p.year}</span>
@@ -133,7 +111,7 @@ const ProjectsSection = () => {
                     </motion.div>
                   </div>
 
-                  {/* Right: Arrow */}
+                  {/* Arrow */}
                   <div className="flex items-center shrink-0">
                     <motion.div
                       className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300"
@@ -145,7 +123,7 @@ const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

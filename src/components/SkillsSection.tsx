@@ -7,55 +7,55 @@ import { Code2, Server, Wrench, Zap, TrendingUp, Award, Coffee, Rocket } from "l
 
 const skillGroups = [
   {
-    title: "Frontend",
+    title: "Languages",
     icon: <Code2 className="w-5 h-5 text-primary" />,
     skills: [
-      { name: "React", level: 95 },
-      { name: "TypeScript", level: 90 },
-      { name: "Next.js", level: 85 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "Three.js", level: 75 },
-      { name: "Framer Motion", level: 88 },
+      { name: "Java", level: 90 },
+      { name: "C++", level: 85 },
+      { name: "C", level: 80 },
+      { name: "Python", level: 85 },
+      { name: "JavaScript", level: 75 },
+      { name: "TypeScript", level: 70 },
     ],
   },
   {
-    title: "Backend",
+    title: "Web & Frameworks",
     icon: <Server className="w-5 h-5 text-primary" />,
     skills: [
-      { name: "Node.js", level: 90 },
-      { name: "Python", level: 85 },
-      { name: "PostgreSQL", level: 82 },
-      { name: "GraphQL", level: 78 },
-      { name: "REST APIs", level: 92 },
-      { name: "Redis", level: 70 },
+      { name: "React", level: 75 },
+      { name: "Node.js", level: 70 },
+      { name: "HTML/CSS", level: 85 },
+      { name: "Tailwind CSS", level: 80 },
+      { name: "REST APIs", level: 78 },
+      { name: "SQL / Databases", level: 80 },
     ],
   },
   {
-    title: "Tools & DevOps",
+    title: "Tools & Platforms",
     icon: <Wrench className="w-5 h-5 text-primary" />,
     skills: [
-      { name: "Git", level: 95 },
-      { name: "Docker", level: 80 },
-      { name: "AWS", level: 75 },
-      { name: "CI/CD", level: 85 },
-      { name: "Figma", level: 88 },
-      { name: "Testing", level: 82 },
+      { name: "Git & GitHub", level: 88 },
+      { name: "VS Code", level: 90 },
+      { name: "Linux", level: 75 },
+      { name: "Figma", level: 70 },
+      { name: "Firebase", level: 72 },
+      { name: "Docker", level: 65 },
     ],
   },
 ];
 
 const stats = [
-  { value: 18, suffix: "+", label: "Technologies", icon: <Zap className="w-4 h-4" /> },
-  { value: 5, suffix: "+", label: "Years Exp.", icon: <TrendingUp className="w-4 h-4" /> },
-  { value: 50, suffix: "+", label: "Projects", icon: <Award className="w-4 h-4" /> },
+  { value: 6, suffix: "+", label: "Languages", icon: <Zap className="w-4 h-4" /> },
+  { value: 175, suffix: "+", label: "Contributions", icon: <TrendingUp className="w-4 h-4" /> },
+  { value: 10, suffix: "+", label: "Projects", icon: <Award className="w-4 h-4" /> },
   { value: 100, suffix: "%", label: "Dedication", icon: <Rocket className="w-4 h-4" /> },
 ];
 
 const philosophyItems = [
   { title: "Clean Code", desc: "Readable, maintainable, scalable" },
-  { title: "Performance", desc: "Optimized for speed & UX" },
-  { title: "Accessibility", desc: "Inclusive by design" },
-  { title: "Testing", desc: "Reliable & bug-free delivery" },
+  { title: "User-Centered", desc: "Building for real users" },
+  { title: "Continuous Learning", desc: "Always exploring new tech" },
+  { title: "Collaboration", desc: "Teamwork makes the dream work" },
 ];
 
 const MiniOrb = ({ color }) => {
