@@ -3,28 +3,54 @@ import { motion, useInView } from "framer-motion";
 import { useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
-import { Code2, Server, Wrench, Database, Globe, Terminal, Coffee } from "lucide-react";
+import { Code2, Globe, Database, Wrench, Coffee } from "lucide-react";
 
 const skillGroups = [
   {
     title: "Languages",
     icon: <Code2 className="w-5 h-5 text-primary" />,
-    skills: ["Java", "C++", "C", "Python", "JavaScript", "TypeScript"],
+    skills: [
+      { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "C++", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+      { name: "C", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    ],
   },
   {
     title: "Web & Frameworks",
     icon: <Globe className="w-5 h-5 text-primary" />,
-    skills: ["React", "Node.js", "HTML/CSS", "Tailwind CSS", "REST APIs", "Vite"],
+    skills: [
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      { name: "HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+      { name: "Vite", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" },
+    ],
   },
   {
     title: "Databases & Backend",
     icon: <Database className="w-5 h-5 text-primary" />,
-    skills: ["SQL", "Firebase", "Supabase", "MongoDB"],
+    skills: [
+      { name: "SQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" },
+      { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+      { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Supabase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" },
+    ],
   },
   {
     title: "Tools & Platforms",
     icon: <Wrench className="w-5 h-5 text-primary" />,
-    skills: ["Git & GitHub", "VS Code", "Linux", "Figma", "Docker", "Vercel"],
+    skills: [
+      { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      { name: "VS Code", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+      { name: "Linux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    ],
   },
 ];
 
@@ -53,16 +79,20 @@ const MiniOrb = ({ color }) => {
   );
 };
 
-const SkillChip = ({ name, delay }: { name: string; delay: number }) => (
+const SkillIcon = ({ name, logo, delay }: { name: string; logo: string; delay: number }) => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
+    initial={{ opacity: 0, scale: 0.6 }}
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
     transition={{ delay, duration: 0.3, ease: "easeOut" }}
-    whileHover={{ scale: 1.05, y: -2 }}
-    className="px-4 py-2.5 rounded-xl bg-muted/40 border border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all duration-200 text-sm font-medium text-foreground cursor-default select-none"
+    whileHover={{ scale: 1.15, y: -4 }}
+    className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-muted/40 border border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all duration-200 flex items-center justify-center cursor-default group relative"
+    title={name}
   >
-    {name}
+    <img src={logo} alt={name} className="w-8 h-8 md:w-9 md:h-9 object-contain" loading="lazy" />
+    <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+      <span className="text-[10px] font-medium text-muted-foreground whitespace-nowrap bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-md border border-border/50">{name}</span>
+    </div>
   </motion.div>
 );
 
@@ -76,7 +106,6 @@ const SkillsSection = () => {
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -97,7 +126,6 @@ const SkillsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-          {/* Skill groups */}
           <div className="lg:col-span-8 space-y-6">
             {skillGroups.map((group, gi) => (
               <motion.div
@@ -107,16 +135,17 @@ const SkillsSection = () => {
                 transition={{ delay: 0.2 + gi * 0.12, duration: 0.5 }}
                 className="glass-card p-6 md:p-8 hover:border-primary/20 transition-colors"
               >
-                <div className="flex items-center gap-3 mb-5">
+                <div className="flex items-center gap-3 mb-6">
                   {group.icon}
                   <h3 className="font-display font-semibold text-lg gradient-text">{group.title}</h3>
                   <div className="h-px flex-1 bg-border" />
                 </div>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-4 pb-2">
                   {group.skills.map((skill, si) => (
-                    <SkillChip
-                      key={skill}
-                      name={skill}
+                    <SkillIcon
+                      key={skill.name}
+                      name={skill.name}
+                      logo={skill.logo}
                       delay={0.25 + gi * 0.08 + si * 0.04}
                     />
                   ))}
@@ -125,10 +154,8 @@ const SkillsSection = () => {
             ))}
           </div>
 
-          {/* Right sidebar */}
           <div className="lg:col-span-4 hidden lg:block">
             <div className="sticky top-32 space-y-6">
-              {/* 3D Orb */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -148,7 +175,6 @@ const SkillsSection = () => {
                 </div>
               </motion.div>
 
-              {/* Philosophy card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
