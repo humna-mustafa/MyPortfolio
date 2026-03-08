@@ -55,7 +55,7 @@ const ContactSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Contact</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            Let's <span className="gradient-text">connect</span>
+            Let's <span className="gradient-text">build together</span>
           </h2>
         </motion.div>
 
@@ -67,9 +67,9 @@ const ContactSection = () => {
             className="lg:col-span-2 space-y-8"
           >
             <p className="text-muted-foreground text-lg leading-relaxed">
-              I'm always open to new opportunities, collaborations, and
-              interesting conversations. Whether you have a project idea or
-              just want to say hi — drop me a message!
+              Looking for an engineer who ships fast, writes clean code, and 
+              thinks in systems? Let's talk. I'm open to internships, collaborations, 
+              and ambitious projects that push boundaries.
             </p>
 
             <div className="space-y-4">

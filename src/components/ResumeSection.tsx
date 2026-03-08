@@ -24,7 +24,7 @@ const ResumeSection = () => {
             My <span className="gradient-text">credentials</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-12 text-balance leading-relaxed">
-            Download my resume to learn more about my education, experience, and technical skills.
+            ATS-optimized, recruiter-ready. Everything you need to know about my engineering journey in one document.
           </p>
         </motion.div>
 

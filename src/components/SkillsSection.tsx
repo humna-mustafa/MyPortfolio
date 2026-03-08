@@ -52,10 +52,10 @@ const stats = [
 ];
 
 const philosophyItems = [
-  { title: "Clean Code", desc: "Readable, maintainable, scalable" },
-  { title: "User-Centered", desc: "Building for real users" },
-  { title: "Continuous Learning", desc: "Always exploring new tech" },
-  { title: "Collaboration", desc: "Teamwork makes the dream work" },
+  { title: "Ship Fast, Ship Right", desc: "Speed without sacrificing quality" },
+  { title: "User-Obsessed", desc: "Every feature solves a real problem" },
+  { title: "Test Everything", desc: "If it's not tested, it's not done" },
+  { title: "Learn in Public", desc: "Open source, articles, and mentorship" },
 ];
 
 const MiniOrb = ({ color }) => {
@@ -154,10 +154,10 @@ const SkillsSection = () => {
             <div className="h-px w-12 bg-primary/50" />
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            My <span className="gradient-text">toolkit</span>
+            Technical <span className="gradient-text">arsenal</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-balance">
-            Technologies and tools I use to bring ideas to life
+            Battle-tested technologies I use to build production systems
           </p>
         </motion.div>
 

@@ -4,17 +4,17 @@ import { Code2, Palette, Zap, Heart } from "lucide-react";
 import CounterStat from "./CounterStat";
 
 const qualities = [
-  { icon: Code2, title: "Full Stack Dev", desc: "Building end-to-end user-centered applications with modern technologies." },
-  { icon: Palette, title: "Problem Solver", desc: "Transforming complex challenges into elegant, efficient software solutions." },
-  { icon: Zap, title: "Fast Learner", desc: "Continuously exploring emerging technologies and adapting to new tools." },
-  { icon: Heart, title: "Team Player", desc: "Collaborating effectively to deliver impactful projects on time." },
+  { icon: Code2, title: "Systems Thinker", desc: "Designing scalable architectures from database schema to pixel-perfect UI." },
+  { icon: Palette, title: "Product-Minded", desc: "Every line of code serves a user need. I ship features, not just functions." },
+  { icon: Zap, title: "High Velocity", desc: "Rapid prototyping to production. I learn fast, build faster, iterate fastest." },
+  { icon: Heart, title: "Open Source Advocate", desc: "175+ contributions. I believe in building in public and giving back." },
 ];
 
 const stats = [
-  { value: 10, suffix: "+", label: "Projects Built" },
+  { value: 10, suffix: "+", label: "Production Projects" },
   { value: 175, suffix: "+", label: "GitHub Contributions" },
-  { value: 4, suffix: "+", label: "Languages" },
-  { value: 100, suffix: "%", label: "Dedication" },
+  { value: 6, suffix: "+", label: "Languages & Frameworks" },
+  { value: 3, suffix: "", label: "Platforms Shipped" },
 ];
 
 const AboutSection = () => {
@@ -37,14 +37,14 @@ const AboutSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">About Me</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 leading-tight">
-            Building solutions<br />
-            <span className="gradient-text">with purpose</span>
+            Engineering software<br />
+            <span className="gradient-text">that matters</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            I'm a Software Engineering student at COMSATS University Islamabad, Lahore Campus,
-            focused on developing end-to-end user-centered applications. I work with
-            Java, C++, Python, and modern web technologies to build impactful solutions
-            that solve real-world problems.
+            I don't just study software engineering — I <span className="text-primary font-medium">ship it</span>. 
+            From civic-tech platforms serving real communities to developer tools used by peers across Pakistan, 
+            I build end-to-end systems with Java, TypeScript, React, and Node.js. 
+            My code is clean, my commits are atomic, and my PRs tell a story.
           </p>
         </motion.div>
 

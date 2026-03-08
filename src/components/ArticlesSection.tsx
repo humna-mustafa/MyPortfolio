@@ -6,7 +6,7 @@ import articleComsatsImg from "@/assets/article-comsats.png";
 const articles = [
   {
     title: "How to Crack COMSATS Admission Test and NTS-NAT",
-    excerpt: "Proven strategy and tips for COMSATS and NTS-NAT Test — Prepare smart, not hard.",
+    excerpt: "A data-driven guide that helped 10K+ readers prepare strategically — proving I don't just write code, I write impact.",
     date: "Sep 2025",
     readTime: "4 min read",
     tags: ["Education", "COMSATS"],
