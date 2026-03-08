@@ -127,9 +127,14 @@ export const FloatingNav = ({
               </a>
             ))}
 
-            <div className="ml-2 pl-2 border-l border-border">
-              <ThemeToggle />
-            </div>
+            <button
+              onClick={() => navigate("/resume")}
+              className="ml-2 pl-2 border-l border-border inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors rounded-lg"
+            >
+              <FileText className="h-4 w-4" />
+              Resume
+            </button>
+            <ThemeToggle />
           </nav>
 
           {/* Mobile Nav */}
