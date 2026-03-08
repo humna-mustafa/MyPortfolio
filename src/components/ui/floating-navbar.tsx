@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -21,6 +21,7 @@ export const FloatingNav = ({
 }) => {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
+  const [activeSection, setActiveSection] = useState("");
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
@@ -32,6 +33,28 @@ export const FloatingNav = ({
       }
     }
   });
+
+  useEffect(() => {
+    const sectionIds = [...navItems.map((item) => item.link.replace("#", "")), "contact"];
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(`#${id}`);
+        },
+        { rootMargin: "-40% 0px -55% 0px" }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, [navItems]);
+
+  const allLinks = [...navItems.map((n) => ({ name: n.name, link: n.link, icon: n.icon }))];
 
   return (
     <AnimatePresence mode="wait">
@@ -49,25 +72,41 @@ export const FloatingNav = ({
           transition={{ duration: 0.25 }}
           className="flex items-center justify-between border border-border rounded-2xl bg-background/70 backdrop-blur-xl shadow-[0_4px_30px_-8px_hsl(var(--primary)/0.15)] px-5 py-2.5"
         >
-          {/* Logo */}
           <a href="#" className="font-display text-lg font-bold gradient-text tracking-tight shrink-0">
             SA<span className="text-accent">.</span>
           </a>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
-            {navItems.map((navItem, idx) => (
+            {allLinks.map((navItem, idx) => (
               <a
                 key={`nav-${idx}`}
                 href={navItem.link}
-                className="relative flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-primary/5"
+                className={cn(
+                  "relative flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-colors rounded-lg",
+                  activeSection === navItem.link
+                    ? "text-foreground bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
+                )}
               >
                 <span>{navItem.name}</span>
+                {activeSection === navItem.link && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 rounded-lg bg-primary/10 -z-10"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
+                )}
               </a>
             ))}
             <a
               href="#contact"
-              className="relative rounded-lg border border-border bg-primary text-primary-foreground px-5 py-2 text-sm font-medium hover:bg-primary/90 transition-colors ml-1"
+              className={cn(
+                "relative rounded-lg border px-5 py-2 text-sm font-medium transition-colors ml-1",
+                activeSection === "#contact"
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border bg-primary text-primary-foreground hover:bg-primary/90"
+              )}
             >
               Contact
             </a>
@@ -78,11 +117,16 @@ export const FloatingNav = ({
 
           {/* Mobile Nav */}
           <div className="flex md:hidden items-center gap-1">
-            {navItems.map((navItem, idx) => (
+            {allLinks.map((navItem, idx) => (
               <a
                 key={`nav-m-${idx}`}
                 href={navItem.link}
-                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+                className={cn(
+                  "p-2 transition-colors rounded-lg",
+                  activeSection === navItem.link
+                    ? "text-foreground bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
               >
                 {navItem.icon}
               </a>
