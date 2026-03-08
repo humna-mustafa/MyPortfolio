@@ -4,17 +4,17 @@ import { Code2, Palette, Zap, Heart } from "lucide-react";
 import CounterStat from "./CounterStat";
 
 const qualities = [
-  { icon: Code2, title: "Clean Code", desc: "Writing maintainable, scalable architecture that teams love to work with." },
-  { icon: Palette, title: "Design Eye", desc: "Bridging the gap between design vision and technical implementation." },
-  { icon: Zap, title: "Performance", desc: "Obsessing over Core Web Vitals and silky-smooth user experiences." },
-  { icon: Heart, title: "Passion", desc: "Deeply invested in crafting products people genuinely enjoy using." },
+  { icon: Code2, title: "Full Stack Dev", desc: "Building end-to-end user-centered applications with modern technologies." },
+  { icon: Palette, title: "Problem Solver", desc: "Transforming complex challenges into elegant, efficient software solutions." },
+  { icon: Zap, title: "Fast Learner", desc: "Continuously exploring emerging technologies and adapting to new tools." },
+  { icon: Heart, title: "Team Player", desc: "Collaborating effectively to deliver impactful projects on time." },
 ];
 
 const stats = [
-  { value: 50, suffix: "+", label: "Projects Delivered" },
-  { value: 5, suffix: "+", label: "Years Experience" },
-  { value: 30, suffix: "+", label: "Happy Clients" },
-  { value: 99, suffix: "%", label: "Code Quality" },
+  { value: 10, suffix: "+", label: "Projects Built" },
+  { value: 175, suffix: "+", label: "GitHub Contributions" },
+  { value: 4, suffix: "+", label: "Languages" },
+  { value: 100, suffix: "%", label: "Dedication" },
 ];
 
 const AboutSection = () => {
@@ -23,7 +23,6 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="section-padding relative overflow-hidden" ref={ref}>
-      {/* Subtle gradient orb */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative">
@@ -38,14 +37,14 @@ const AboutSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">About Me</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 leading-tight">
-            Crafting digital experiences<br />
+            Building solutions<br />
             <span className="gradient-text">with purpose</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            I'm a software engineer with 5+ years of experience building
-            full-stack applications. I specialize in React, TypeScript, and
-            modern web technologies. I love transforming complex problems
-            into simple, beautiful, and intuitive solutions.
+            I'm a Software Engineering student at COMSATS University Islamabad, Lahore Campus,
+            focused on developing end-to-end user-centered applications. I work with
+            Java, C++, Python, and modern web technologies to build impactful solutions
+            that solve real-world problems.
           </p>
         </motion.div>
 
@@ -71,7 +70,6 @@ const AboutSection = () => {
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="glass-card border border-border p-6 group relative overflow-hidden"
             >
-              {/* Hover gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">

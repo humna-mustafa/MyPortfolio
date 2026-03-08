@@ -7,7 +7,6 @@ const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [sent, setSent] = useState(false);
-  const [focused, setFocused] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +18,6 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden" ref={ref}>
-      {/* Background elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/3 blur-[150px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative">
@@ -52,15 +50,16 @@ const ContactSection = () => {
             </p>
 
             <div className="space-y-4">
-              <motion.div
+              <motion.a
+                href="mailto:humna.mustafa@example.com"
                 whileHover={{ x: 4 }}
                 className="flex items-center gap-3 text-muted-foreground group cursor-pointer"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Mail className="h-4 w-4 text-primary" />
                 </div>
-                <span className="text-sm">sarah@example.com</span>
-              </motion.div>
+                <span className="text-sm">humna.mustafa@example.com</span>
+              </motion.a>
               <motion.div
                 whileHover={{ x: 4 }}
                 className="flex items-center gap-3 text-muted-foreground group cursor-pointer"
@@ -68,17 +67,35 @@ const ContactSection = () => {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <MapPin className="h-4 w-4 text-primary" />
                 </div>
-                <span className="text-sm">San Francisco, CA</span>
+                <span className="text-sm">Lahore, Pakistan</span>
               </motion.div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 space-y-3">
               <MagneticButton
                 as="a"
-                href="#"
+                href="https://github.com/humna-mustafa"
                 className="inline-flex items-center gap-2 text-primary font-display font-medium text-sm group"
               >
-                View my resume 
+                GitHub Profile
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </MagneticButton>
+              <br />
+              <MagneticButton
+                as="a"
+                href="https://www.linkedin.com/in/humna-mustafa/"
+                className="inline-flex items-center gap-2 text-primary font-display font-medium text-sm group"
+              >
+                LinkedIn Profile
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </MagneticButton>
+              <br />
+              <MagneticButton
+                as="a"
+                href="https://g.dev/humna-mustafa"
+                className="inline-flex items-center gap-2 text-primary font-display font-medium text-sm group"
+              >
+                Google Dev Profile
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </MagneticButton>
             </div>
@@ -91,7 +108,6 @@ const ContactSection = () => {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="lg:col-span-3 glass-card border border-border p-8 space-y-5 relative overflow-hidden"
           >
-            {/* Form gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-accent/[0.02] pointer-events-none" />
 
             <div className="relative space-y-5">

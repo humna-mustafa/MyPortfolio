@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Scene3D from "./Scene3D";
 import TextReveal from "./TextReveal";
 import MagneticButton from "./MagneticButton";
-import { ArrowDown, Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, ArrowUpRight, ExternalLink } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -22,11 +22,9 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          {/* Status badge */}
-
           <div className="mb-4">
             <TextReveal
-              text="Software Engineer"
+              text="Software Engineering Student"
               className="text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground font-display block"
               delay={0.3}
             />
@@ -40,7 +38,7 @@ const HeroSection = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                Hi, I'm <span className="gradient-text">Sarah</span>
+                Hi, I'm <span className="gradient-text">Humna</span>
               </motion.span>
             </span>
             <span className="overflow-hidden block">
@@ -50,7 +48,7 @@ const HeroSection = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.7, delay: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <span className="gradient-accent-text">Anderson</span>
+                <span className="gradient-accent-text">Mustafa</span>
               </motion.span>
             </span>
           </h1>
@@ -61,8 +59,8 @@ const HeroSection = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-12 text-balance leading-relaxed"
           >
-            Building elegant, performant, and accessible digital experiences
-            with modern web technologies.
+            Passionate about developing innovative software solutions
+            with emerging technologies. Based in Lahore, Pakistan.
           </motion.p>
 
           {/* CTA buttons */}
@@ -91,7 +89,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Bottom area - scroll + socials, pinned to bottom */}
+      {/* Bottom area */}
       <div className="relative z-10 pb-8 flex flex-col items-center gap-4">
         <motion.a
           href="#about"
@@ -116,11 +114,11 @@ const HeroSection = () => {
           className="flex items-center gap-5"
         >
           {[
-            { icon: Github, href: "#", label: "GitHub" },
-            { icon: Linkedin, href: "#", label: "LinkedIn" },
+            { icon: Github, href: "https://github.com/humna-mustafa", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/humna-mustafa/", label: "LinkedIn" },
             { icon: Mail, href: "#contact", label: "Email" },
           ].map(({ icon: Icon, href, label }) => (
-            <a key={label} href={href} className="p-3 glass-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors rounded-2xl">
+            <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} className="p-3 glass-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors rounded-2xl">
               <Icon className="h-5 w-5" />
             </a>
           ))}
