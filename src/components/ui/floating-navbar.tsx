@@ -132,13 +132,13 @@ export const FloatingNav = ({
 
           {/* Mobile Nav */}
           <div className="flex md:hidden items-center gap-0.5">
-            <div className="flex items-center bg-muted/50 rounded-lg p-0.5 mr-2">
+            <div className="relative flex items-center bg-muted/60 rounded-lg p-0.5 mr-2">
               {navItems.map((navItem, idx) => (
                 <a
                   key={`nav-m-${idx}`}
                   href={navItem.link}
                   className={cn(
-                    "relative px-3 py-1.5 text-xs font-medium transition-all duration-300 rounded-md",
+                    "relative z-10 px-3 py-1.5 text-xs font-medium transition-colors duration-300 rounded-md",
                     activeSection === navItem.link
                       ? "text-foreground"
                       : "text-muted-foreground"
@@ -148,7 +148,8 @@ export const FloatingNav = ({
                   {activeSection === navItem.link && (
                     <motion.div
                       layoutId="active-pill-mobile"
-                      className="absolute inset-0 rounded-md bg-background shadow-sm border border-border/50 -z-10"
+                      className="absolute inset-0 rounded-md bg-background shadow-[0_1px_3px_0_rgb(0_0_0/0.1),0_1px_2px_-1px_rgb(0_0_0/0.1)] border border-border"
+                      style={{ zIndex: -1 }}
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
