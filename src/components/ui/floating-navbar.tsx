@@ -122,13 +122,13 @@ export const FloatingNav = ({
                 key={`nav-m-${idx}`}
                 href={navItem.link}
                 className={cn(
-                  "p-2 transition-colors rounded-lg",
+                  "px-3 py-1.5 text-xs font-medium transition-colors rounded-lg",
                   activeSection === navItem.link
                     ? "text-foreground bg-primary/10"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                {navItem.icon}
+                {navItem.name}
               </a>
             ))}
             <a
