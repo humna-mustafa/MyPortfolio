@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Scene3D from "./Scene3D";
 import TextReveal from "./TextReveal";
 import MagneticButton from "./MagneticButton";
-import { ArrowDown, Github, Linkedin, Mail, ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -24,7 +24,7 @@ const HeroSection = () => {
         >
           <div className="mb-4">
             <TextReveal
-              text="Software Engineer · Builder · Problem Solver"
+              text="Software Engineer · Full-Stack Builder · Problem Solver"
               className="text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground font-display block"
               delay={0.3}
             />
@@ -59,9 +59,10 @@ const HeroSection = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 text-balance leading-relaxed"
           >
-            I architect <span className="text-primary font-semibold">full-stack systems</span> that scale, ship production-grade code, 
-            and obsess over clean architecture. Currently engineering solutions that 
-            impact <span className="gradient-accent-text font-semibold">thousands of users</span>.
+            I don't just write code — I <span className="text-primary font-semibold">engineer solutions</span>. 
+            From civic-tech platforms serving real communities to developer tools used across Pakistan, 
+            I build full-stack systems with <span className="gradient-accent-text font-semibold">Java, React, TypeScript & Node.js</span> that 
+            actually ship and actually matter.
           </motion.p>
 
           {/* CTA buttons */}
@@ -76,7 +77,7 @@ const HeroSection = () => {
               href="#projects"
               className="group px-8 py-3.5 rounded-full font-display font-medium text-sm bg-primary text-primary-foreground flex items-center gap-2 hover:opacity-90 transition-opacity"
             >
-              View My Work
+              See What I've Built
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </MagneticButton>
             <MagneticButton
@@ -84,7 +85,7 @@ const HeroSection = () => {
               href="#contact"
               className="px-8 py-3.5 rounded-full font-display font-medium text-sm glass-card border border-border text-foreground hover:bg-primary/5 transition-colors"
             >
-              Get in Touch
+              Let's Talk
             </MagneticButton>
           </motion.div>
         </motion.div>
