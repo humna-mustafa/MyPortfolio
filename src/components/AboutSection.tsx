@@ -4,17 +4,17 @@ import { Code2, Palette, Zap, Heart } from "lucide-react";
 import CounterStat from "./CounterStat";
 
 const qualities = [
-  { icon: Code2, title: "Systems Thinker", desc: "I see the full picture — from database schema to pixel-perfect UI to deployment pipeline." },
-  { icon: Palette, title: "Product-Minded", desc: "Every feature I build solves a real problem for real users. I ship outcomes, not just code." },
-  { icon: Zap, title: "Fast Learner, Faster Builder", desc: "New framework? Give me a weekend. I pick up tools quickly and deliver even quicker." },
-  { icon: Heart, title: "Community Builder", desc: "175+ open-source contributions, published articles with 10K+ readers, and always building in public." },
+  { icon: Code2, title: "Systems Thinker", desc: "I don't just write code — I think about architecture, data flow, and how everything connects end to end." },
+  { icon: Palette, title: "Detail-Oriented", desc: "Clean code, meaningful variable names, atomic commits. The small things matter because they compound." },
+  { icon: Zap, title: "Fast Learner", desc: "Picked up React, TypeScript, and Firebase within months — not from tutorials, but by building real projects." },
+  { icon: Heart, title: "Open-Source Contributor", desc: "175+ GitHub contributions and counting. I believe in building in public and learning from the community." },
 ];
 
 const stats = [
-  { value: 10, suffix: "+", label: "Projects Shipped" },
   { value: 175, suffix: "+", label: "GitHub Contributions" },
   { value: 6, suffix: "+", label: "Languages & Frameworks" },
-  { value: 10, suffix: "K+", label: "Article Readers" },
+  { value: 5, suffix: "+", label: "Projects Built" },
+  { value: 1, suffix: "st", label: "Semester & Already Shipping" },
 ];
 
 const AboutSection = () => {
