@@ -6,7 +6,7 @@ import { ArrowDown, Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden mesh-bg pt-20">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden mesh-bg pt-32 md:pt-36">
       <Scene3D />
 
       {/* Noise overlay */}
