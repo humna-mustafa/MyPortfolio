@@ -1,17 +1,40 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, MapPin, Mail, ArrowUpRight } from "lucide-react";
+import { Send, MapPin, Mail, ArrowUpRight, Loader2 } from "lucide-react";
 import MagneticButton from "./MagneticButton";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from("contact_messages")
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        });
+
+      if (error) throw error;
+
+      toast.success("Message sent! I'll get back to you soon.");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err) {
+      console.error("Contact form error:", err);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClasses = "w-full px-4 py-3 rounded-xl bg-background/50 border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all placeholder:text-muted-foreground/50";
@@ -114,26 +137,57 @@ const ContactSection = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-display font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Name</label>
-                  <input type="text" required className={inputClasses} placeholder="Your name" />
+                  <input
+                    type="text"
+                    required
+                    className={inputClasses}
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                  />
                 </div>
                 <div>
                   <label className="text-xs font-display font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Email</label>
-                  <input type="email" required className={inputClasses} placeholder="your@email.com" />
+                  <input
+                    type="email"
+                    required
+                    className={inputClasses}
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                  />
                 </div>
               </div>
               <div>
                 <label className="text-xs font-display font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Subject</label>
-                <input type="text" required className={inputClasses} placeholder="What's this about?" />
+                <input
+                  type="text"
+                  required
+                  className={inputClasses}
+                  placeholder="What's this about?"
+                  value={formData.subject}
+                  onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
+                />
               </div>
               <div>
                 <label className="text-xs font-display font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Message</label>
-                <textarea required rows={5} className={`${inputClasses} resize-none`} placeholder="Tell me about your project..." />
+                <textarea
+                  required
+                  rows={5}
+                  className={`${inputClasses} resize-none`}
+                  placeholder="Tell me about your project..."
+                  value={formData.message}
+                  onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                />
               </div>
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-display font-medium text-sm hover:opacity-90 transition-opacity"
+                disabled={isSubmitting}
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-display font-medium text-sm hover:opacity-90 transition-opacity disabled:opacity-60"
               >
-                {sent ? "Message Sent! ✓" : (
+                {isSubmitting ? (
+                  <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>
+                ) : (
                   <>Send Message <Send className="h-4 w-4" /></>
                 )}
               </button>
