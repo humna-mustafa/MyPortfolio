@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
 
 const Footer = () => (
-<footer className="relative overflow-hidden">
+  <footer className="relative overflow-hidden">
     <div className="px-6 py-8 md:px-12 lg:px-24 border-t border-border">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col md:flex-row items-center gap-4">
           <a href="#" className="font-display text-lg font-bold gradient-text">HM<span className="text-accent">.</span></a>
           <span className="hidden md:inline text-border">|</span>
           <p className="text-xs text-muted-foreground/60">
-            © {new Date().getFullYear()} Humna Mustafa. Built with passion from Lahore, Pakistan.
+            © {new Date().getFullYear()} Humna Mustafa. Designed & built from scratch in Lahore, Pakistan.
           </p>
         </div>
         <div className="flex items-center gap-3">

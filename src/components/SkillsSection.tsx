@@ -29,7 +29,7 @@ const skillGroups = [
     ],
   },
   {
-    title: "Backend & Databases",
+    title: "Backend & Data",
     icon: <Database className="w-5 h-5 text-primary" />,
     skills: [
       { name: "Supabase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" },
@@ -50,10 +50,10 @@ const skillGroups = [
 ];
 
 const philosophyItems = [
-  { title: "Build to Ship", desc: "Every project leaves my desk production-ready" },
-  { title: "User First, Always", desc: "If it doesn't solve a real problem, I don't build it" },
-  { title: "Clean Code Obsessed", desc: "Atomic commits, meaningful PRs, zero shortcuts" },
-  { title: "Learn in Public", desc: "Open source, articles, and sharing what I know" },
+  { title: "Ship, Don't Just Study", desc: "I learn best by building and deploying real projects" },
+  { title: "User-First Design", desc: "Every feature starts with the question: who benefits?" },
+  { title: "Clean Code Always", desc: "Meaningful names, atomic commits, zero shortcuts" },
+  { title: "Build in Public", desc: "Open source, articles, and sharing what I learn" },
 ];
 
 const MiniOrb = ({ color }) => {
@@ -109,14 +109,14 @@ const SkillsSection = () => {
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-12 bg-primary/50" />
-            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Tech Stack</p>
+            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Skills</p>
             <div className="h-px w-12 bg-primary/50" />
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            My <span className="gradient-text">Toolkit</span>
+            Technical <span className="gradient-text">Toolkit</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-balance">
-            Technologies and tools I work with to bring ideas to life
+            The technologies and tools I use to turn ideas into working software
           </p>
         </motion.div>
 
@@ -178,7 +178,7 @@ const SkillsSection = () => {
               >
                 <h4 className="text-xs uppercase tracking-[0.15em] text-primary font-display mb-4 flex items-center gap-2">
                   <Coffee className="w-3.5 h-3.5" />
-                  How I Work
+                  My Approach
                 </h4>
                 <div className="space-y-3">
                   {philosophyItems.map((item, i) => (

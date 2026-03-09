@@ -4,17 +4,17 @@ import { Code2, Palette, Zap, Heart } from "lucide-react";
 import CounterStat from "./CounterStat";
 
 const qualities = [
-  { icon: Code2, title: "Systems Thinker", desc: "I don't just write code — I think about architecture, data flow, and how everything connects end to end." },
-  { icon: Palette, title: "Detail-Oriented", desc: "Clean code, meaningful variable names, atomic commits. The small things matter because they compound." },
-  { icon: Zap, title: "Fast Learner", desc: "Picked up React, TypeScript, and Firebase within months — not from tutorials, but by building real projects." },
-  { icon: Heart, title: "Open-Source Contributor", desc: "175+ GitHub contributions and counting. I believe in building in public and learning from the community." },
+  { icon: Code2, title: "Systems Thinker", desc: "I approach every project with architecture in mind — thinking about data flow, scalability, and long-term maintainability." },
+  { icon: Palette, title: "Detail-Oriented", desc: "Clean code, meaningful naming, atomic commits. Small things compound into great software." },
+  { icon: Zap, title: "Self-Driven Learner", desc: "Picked up React, TypeScript, and full-stack development by building real projects — not just watching tutorials." },
+  { icon: Heart, title: "Open-Source Advocate", desc: "175+ GitHub contributions with Pull Shark, YOLO & Quickdraw achievements. I believe in building in public." },
 ];
 
 const stats = [
   { value: 175, suffix: "+", label: "GitHub Contributions" },
-  { value: 6, suffix: "+", label: "Languages & Frameworks" },
-  { value: 5, suffix: "+", label: "Projects Built" },
-  { value: 1, suffix: "st", label: "Semester & Already Shipping" },
+  { value: 6, suffix: "+", label: "Technologies Mastered" },
+  { value: 3, suffix: "+", label: "Projects Shipped" },
+  { value: 1, suffix: "st", label: "Year & Already Building" },
 ];
 
 const AboutSection = () => {
@@ -34,17 +34,19 @@ const AboutSection = () => {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-primary/50" />
-            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">About Me</p>
+            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">About</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 leading-tight">
-            I learn by <span className="gradient-text">building things</span>
+            Building software that <span className="gradient-text">solves real problems</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            I'm Humna — a first-year Software Engineering student at <span className="text-primary font-medium">COMSATS University Islamabad, Lahore Campus</span>. 
-            Most students wait until third year to start building — I started in my first semester. I've already built full-stack web apps, 
-            explored design patterns and clean architecture in <span className="text-primary font-medium">Java & C++</span>, and earned multiple 
-            GitHub achievements through consistent open-source contributions. I'm not where I want to be yet — but I'm learning fast, 
-            building every day, and obsessed with writing code that's clean, maintainable, and meaningful.
+            I'm Humna Mustafa — a first-year Software Engineering student at{" "}
+            <span className="text-primary font-medium">COMSATS University Islamabad, Lahore Campus</span>. 
+            While most students wait until later semesters to start building, I began shipping projects from day one. 
+            I develop user-centered, end-to-end applications using{" "}
+            <span className="text-primary font-medium">Java, C++, Python, React & TypeScript</span>, 
+            and I'm deep-diving into design patterns, SOLID principles, and clean architecture. 
+            My goal is simple: write software that's structured, testable, and impactful.
           </p>
         </motion.div>
 

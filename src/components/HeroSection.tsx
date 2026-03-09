@@ -11,7 +11,6 @@ const HeroSection = () => {
       <GradientMeshBackground />
       <Scene3D />
 
-      {/* Main content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex-1 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0 }}
@@ -20,7 +19,7 @@ const HeroSection = () => {
         >
           <div className="mb-4">
             <TextReveal
-              text="Software Engineer · Full-Stack Builder · Problem Solver"
+              text="Software Engineer · Full-Stack Developer · Open-Source Contributor"
               className="text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground font-display block"
               delay={0.3}
             />
@@ -55,13 +54,12 @@ const HeroSection = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 text-balance leading-relaxed"
           >
-            A Software Engineering student at COMSATS who doesn't wait for the classroom to start building. 
-            I spend my days writing <span className="text-primary font-semibold">clean, purposeful code</span> in 
-            <span className="gradient-accent-text font-semibold">Java, React, TypeScript & C++</span> — learning by doing, 
-            shipping real projects, and growing one commit at a time.
+            A Software Engineering student at <span className="text-primary font-semibold">COMSATS University Islamabad</span> who 
+            builds end-to-end applications instead of waiting for the syllabus. I work with{" "}
+            <span className="gradient-accent-text font-semibold">Java, C++, Python, React & TypeScript</span> — turning ideas 
+            into production-ready software, one commit at a time.
           </motion.p>
 
-          {/* CTA buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,7 +71,7 @@ const HeroSection = () => {
               href="#projects"
               className="group px-8 py-3.5 rounded-full font-display font-medium text-sm bg-primary text-primary-foreground flex items-center gap-2 hover:opacity-90 transition-opacity"
             >
-              See What I've Built
+              View My Work
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </MagneticButton>
             <MagneticButton
@@ -81,13 +79,12 @@ const HeroSection = () => {
               href="#contact"
               className="px-8 py-3.5 rounded-full font-display font-medium text-sm glass-card border border-border text-foreground hover:bg-primary/5 transition-colors"
             >
-              Let's Talk
+              Get in Touch
             </MagneticButton>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Bottom area */}
       <div className="relative z-10 pb-8 flex flex-col items-center gap-4">
         <motion.a
           href="#about"
@@ -116,7 +113,7 @@ const HeroSection = () => {
             { icon: Linkedin, href: "https://www.linkedin.com/in/humna-mustafa/", label: "LinkedIn" },
             { icon: Mail, href: "#contact", label: "Email" },
           ].map(({ icon: Icon, href, label }) => (
-            <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} className="p-3 glass-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors rounded-2xl">
+            <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} className="p-3 glass-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors rounded-2xl" aria-label={label}>
               <Icon className="h-5 w-5" />
             </a>
           ))}

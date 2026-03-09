@@ -2,16 +2,15 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import citizenConnectImg from "@/assets/project-citizenconnect.jpg";
-
 import sp26OopImg from "@/assets/project-sp26oop.jpg";
 
 const projects = [
   {
     title: "CitizenConnect",
-    desc: "A full-stack civic engagement platform built as a university course project. Features role-based authentication, real-time communication, and an analytics dashboard. My first complete full-stack application — designed, built, and polished from scratch.",
-    tags: ["React", "TypeScript", "Firebase", "Full Stack"],
+    desc: "A full-stack civic engagement platform with role-based authentication, real-time communication, and an analytics dashboard. Built from scratch as a university project — my first complete production-ready application.",
+    tags: ["React", "TypeScript", "Supabase", "Full Stack"],
     year: "2025",
-    category: "Course Project",
+    category: "Web App",
     color: "from-primary/20 to-accent/10",
     number: "01",
     link: "https://github.com/humna-mustafa/citizenconnect",
@@ -19,8 +18,8 @@ const projects = [
   },
   {
     title: "SP26-OOP",
-    desc: "A comprehensive collection of OOP implementations exploring SOLID principles, Gang of Four design patterns, and clean architecture in Java & C++. Not just assignments — a personal deep-dive into writing software that's structured, testable, and maintainable.",
-    tags: ["Java", "C++", "Design Patterns", "Clean Architecture"],
+    desc: "A comprehensive exploration of object-oriented design — implementing SOLID principles, Gang of Four patterns, and clean architecture in Java & C++. Not coursework, but a personal deep-dive into engineering fundamentals.",
+    tags: ["Java", "C++", "Design Patterns", "SOLID"],
     year: "2026",
     category: "Engineering",
     color: "from-primary/15 to-accent/15",
@@ -29,8 +28,8 @@ const projects = [
     image: sp26OopImg,
   },
   {
-    title: "Personal Portfolio",
-    desc: "The site you're looking at right now. Built from scratch with React, TypeScript, and Framer Motion — custom 3D scene, smooth animations, dark/light themes, and responsive design. No templates, no shortcuts.",
+    title: "This Portfolio",
+    desc: "The site you're on right now. Custom-built with React, TypeScript, and Framer Motion — featuring 3D elements, smooth animations, dark/light themes, and responsive design. No templates used.",
     tags: ["React", "TypeScript", "Framer Motion", "Tailwind"],
     year: "2026",
     category: "Personal",
@@ -61,10 +60,10 @@ const ProjectsSection = () => {
           </div>
           <div className="flex items-end justify-between">
             <h2 className="text-3xl md:text-5xl font-bold font-display">
-              Things I've <span className="gradient-text">built</span>
+              Featured <span className="gradient-text">Work</span>
             </h2>
             <p className="text-muted-foreground text-sm hidden md:block">
-              {projects.length} featured projects
+              {projects.length} selected projects
             </p>
           </div>
         </motion.div>
@@ -90,11 +89,10 @@ const ProjectsSection = () => {
                 />
 
                 <div className="relative flex flex-col md:flex-row">
-                  {/* Image */}
                   <div className="relative w-full md:w-72 lg:w-80 shrink-0 overflow-hidden">
                     <motion.img
                       src={p.image}
-                      alt={p.title}
+                      alt={`${p.title} project screenshot`}
                       className="w-full h-48 md:h-full object-cover"
                       animate={{ scale: hoveredIdx === i ? 1.05 : 1 }}
                       transition={{ duration: 0.5 }}
@@ -102,7 +100,6 @@ const ProjectsSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/80 hidden md:block" />
                   </div>
 
-                  {/* Content */}
                   <div className="flex-1 flex items-center justify-between p-5 md:p-8 gap-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-1">
@@ -118,7 +115,6 @@ const ProjectsSection = () => {
                       </div>
                     </div>
 
-                    {/* Arrow */}
                     <div className="flex items-center shrink-0">
                       <motion.div
                         className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300"
