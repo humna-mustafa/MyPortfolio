@@ -1,159 +1,130 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin, Briefcase } from "lucide-react";
+import Scene3D from "./Scene3D";
+import TextReveal from "./TextReveal";
+import MagneticButton from "./MagneticButton";
+import { ArrowDown, Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-background pt-20 md:pt-24">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background pointer-events-none" />
-      
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full relative z-10">
-        <div className="grid lg:grid-cols-[1fr,0.8fr] gap-12 lg:gap-20 items-center">
-          {/* Left Column - Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden mesh-bg pt-32 md:pt-36">
+      <Scene3D />
+
+      {/* Noise overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-[1]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+        backgroundRepeat: "repeat",
+      }} />
+
+      {/* Main content */}
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex-1 flex flex-col items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="mb-4">
+            <TextReveal
+              text="Software Engineer · Full-Stack Builder · Problem Solver"
+              className="text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground font-display block"
+              delay={0.3}
+            />
+          </div>
+
+          <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold font-display leading-[0.95] mb-8">
+            <span className="overflow-hidden block">
+              <motion.span
+                className="block"
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                Hi, I'm <span className="gradient-text">Humna</span>
+              </motion.span>
+            </span>
+            <span className="overflow-hidden block">
+              <motion.span
+                className="block"
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.7, delay: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <span className="gradient-accent-text">Mustafa</span>
+              </motion.span>
+            </span>
+          </h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 text-balance leading-relaxed"
           >
-            {/* Professional Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm"
-            >
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm text-muted-foreground">Available for opportunities</span>
-            </motion.div>
+            A Software Engineering student at COMSATS who doesn't wait for the classroom to start building. 
+            I spend my days writing <span className="text-primary font-semibold">clean, purposeful code</span> in 
+            <span className="gradient-accent-text font-semibold">Java, React, TypeScript & C++</span> — learning by doing, 
+            shipping real projects, and growing one commit at a time.
+          </motion.p>
 
-            {/* Name and Title */}
-            <div className="space-y-3">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight"
-              >
-                Humna Mustafa
-              </motion.h1>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex items-center gap-3 text-lg md:text-xl text-muted-foreground"
-              >
-                <Briefcase className="w-5 h-5 text-primary" />
-                <span>Software Engineer</span>
-              </motion.div>
-            </div>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl"
-            >
-              Computer Science student at COMSATS specializing in full-stack development. 
-              Proficient in <span className="text-foreground font-medium">Java, C++, Python, TypeScript, and React</span>, 
-              with a focus on building scalable, user-centric applications.
-            </motion.p>
-
-            {/* Location */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex items-center gap-2 text-sm text-muted-foreground"
-            >
-              <MapPin className="w-4 h-4" />
-              <span>Islamabad, Pakistan</span>
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex flex-wrap items-center gap-4 pt-4"
-            >
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-              >
-                View Projects
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors"
-              >
-                Get in Touch
-              </a>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="flex items-center gap-4 pt-2"
-            >
-              {[
-                { icon: Github, href: "https://github.com/humna-mustafa", label: "GitHub" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/humna-mustafa/", label: "LinkedIn" },
-                { icon: Mail, href: "#contact", label: "Email" },
-              ].map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="p-2.5 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-accent transition-all"
-                  aria-label={label}
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column - Profile Picture */}
+          {/* CTA buttons */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="relative lg:justify-self-end w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <div className="relative w-full max-w-lg mx-auto lg:mx-0 aspect-square">
-              {/* Decorative background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-3xl blur-3xl" />
-              
-              {/* Profile picture container */}
-              <div className="relative w-full h-full rounded-3xl border-2 border-border bg-card/50 backdrop-blur-sm overflow-hidden shadow-xl">
-                {/* Placeholder with professional styling */}
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted/30 to-muted/10">
-                  <div className="text-center space-y-4">
-                    <div className="w-32 h-32 mx-auto rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center">
-                      <span className="text-5xl font-bold text-primary">HM</span>
-                    </div>
-                    <p className="text-base text-muted-foreground">Profile Photo</p>
-                  </div>
-                </div>
-                {/* Replace the placeholder div above with your actual image:
-                <img 
-                  src="/path-to-your-photo.jpg" 
-                  alt="Humna Mustafa" 
-                  className="w-full h-full object-cover"
-                />
-                */}
-              </div>
-              
-              {/* Decorative corner accent */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
-            </div>
+            <MagneticButton
+              as="a"
+              href="#projects"
+              className="group px-8 py-3.5 rounded-full font-display font-medium text-sm bg-primary text-primary-foreground flex items-center gap-2 hover:opacity-90 transition-opacity"
+            >
+              See What I've Built
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </MagneticButton>
+            <MagneticButton
+              as="a"
+              href="#contact"
+              className="px-8 py-3.5 rounded-full font-display font-medium text-sm glass-card border border-border text-foreground hover:bg-primary/5 transition-colors"
+            >
+              Let's Talk
+            </MagneticButton>
           </motion.div>
-        </div>
+        </motion.div>
+      </div>
+
+      {/* Bottom area */}
+      <div className="relative z-10 pb-8 flex flex-col items-center gap-4">
+        <motion.a
+          href="#about"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <span className="text-[10px] font-display tracking-[0.2em] uppercase">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          >
+            <ArrowDown className="h-4 w-4" />
+          </motion.div>
+        </motion.a>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.3 }}
+          className="flex items-center gap-5"
+        >
+          {[
+            { icon: Github, href: "https://github.com/humna-mustafa", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/humna-mustafa/", label: "LinkedIn" },
+            { icon: Mail, href: "#contact", label: "Email" },
+          ].map(({ icon: Icon, href, label }) => (
+            <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} className="p-3 glass-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors rounded-2xl">
+              <Icon className="h-5 w-5" />
+            </a>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
