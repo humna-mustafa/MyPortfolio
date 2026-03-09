@@ -12,8 +12,8 @@ const CTASection = () => (
         transition={{ duration: 0.6 }}
         className="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-8"
       >
-        Got an idea? Let's<br />
-        <span className="gradient-text">make it real.</span>
+        Have an opportunity?<br />
+        <span className="gradient-text">Let's connect.</span>
       </motion.h2>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -25,7 +25,7 @@ const CTASection = () => (
           href="#contact"
           className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-display font-medium text-sm hover:opacity-90 transition-opacity group"
         >
-          Start a Conversation
+          Send a Message
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </motion.div>

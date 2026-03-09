@@ -5,8 +5,8 @@ import articleComsatsImg from "@/assets/article-comsats.png";
 
 const articles = [
   {
-    title: "How to Crack COMSATS Admission Test and NTS-NAT",
-    excerpt: "A data-driven, no-BS guide that helped 10,000+ students prepare strategically for Pakistan's most competitive university entrance exams. Written from experience, backed by results.",
+    title: "How to Crack COMSATS Admission Test & NTS-NAT",
+    excerpt: "A strategic, data-driven guide that helped thousands of students prepare for Pakistan's competitive university entrance exams. Written from personal experience and backed by results.",
     date: "Sep 2025",
     readTime: "4 min read",
     tags: ["Education", "Strategy"],
@@ -30,11 +30,11 @@ const ArticlesSection = () => {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-primary/50" />
-            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Writing</p>
+            <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Blog</p>
           </div>
           <div className="flex items-end justify-between">
             <h2 className="text-3xl md:text-5xl font-bold font-display">
-              Words that <span className="gradient-text">reach people</span>
+              Latest <span className="gradient-text">Writing</span>
             </h2>
             <a
               href="https://medium.com/@humna-mustafa"
@@ -42,7 +42,7 @@ const ArticlesSection = () => {
               rel="noopener noreferrer"
               className="text-sm text-primary hover:underline hidden md:flex items-center gap-1 font-display"
             >
-              Read more on Medium <ArrowUpRight className="h-3.5 w-3.5" />
+              All articles on Medium <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
           </div>
         </motion.div>
@@ -64,6 +64,7 @@ const ArticlesSection = () => {
                   src={article.image}
                   alt={article.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
               <div className="p-6 flex flex-col">
@@ -110,7 +111,7 @@ const ArticlesSection = () => {
             rel="noopener noreferrer"
             className="text-sm text-primary hover:underline inline-flex items-center gap-1 font-display"
           >
-            Read more on Medium <ArrowUpRight className="h-3.5 w-3.5" />
+            All articles on Medium <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
         </motion.div>
       </div>

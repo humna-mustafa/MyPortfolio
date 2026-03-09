@@ -21,10 +21,10 @@ const ResumeSection = () => {
             <div className="h-px w-12 bg-primary/50" />
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-            The <span className="gradient-text">full picture</span>
+            View My <span className="gradient-text">Resume</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-12 text-balance leading-relaxed">
-            Everything you need to know about my engineering journey, technical skills, and what I bring to the table — all in one document.
+            A complete overview of my education, technical skills, projects, and achievements — everything in one document.
           </p>
         </motion.div>
 
@@ -43,8 +43,8 @@ const ResumeSection = () => {
             </div>
             <div className="flex-1 text-center md:text-left">
               <h3 className="font-display text-xl font-bold mb-2">Humna Mustafa — Resume</h3>
-              <p className="text-sm text-muted-foreground mb-1">Software Engineer • COMSATS University Islamabad, Lahore</p>
-              <p className="text-xs text-muted-foreground/60">PDF • Last updated March 2026</p>
+              <p className="text-sm text-muted-foreground mb-1">Software Engineering Student · COMSATS University Islamabad</p>
+              <p className="text-xs text-muted-foreground/60">PDF · Updated March 2026</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
@@ -59,7 +59,7 @@ const ResumeSection = () => {
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-foreground font-display font-medium text-sm hover:bg-primary/5 transition-colors"
               >
                 <ExternalLink className="h-4 w-4" />
-                View Resume
+                View Online
               </a>
             </div>
           </div>

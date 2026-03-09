@@ -5,61 +5,60 @@ import { GraduationCap, Briefcase, Code, Rocket, Award } from "lucide-react";
 const timeline = [
   {
     year: "2025",
-    title: "Started BS Software Engineering",
+    title: "Enrolled in BS Software Engineering",
     org: "COMSATS University Islamabad, Lahore Campus",
-    description: "Began my formal CS journey at one of Pakistan's top engineering universities. Didn't wait for the syllabus — started building projects from day one.",
+    description: "Started my formal engineering education at one of Pakistan's top universities. Instead of waiting for the curriculum, I began building real projects from week one.",
     icon: GraduationCap,
     type: "education" as const,
   },
   {
     year: "2025",
-    title: "First Open-Source Contributions",
-    org: "GitHub · Pull Shark · YOLO · Quickdraw",
-    description: "Started contributing to open source consistently. Earned GitHub achievements including Pull Shark, YOLO, and Quickdraw — 175+ contributions and growing.",
+    title: "Earned GitHub Achievements",
+    org: "Pull Shark · YOLO · Quickdraw",
+    description: "Began contributing to open source consistently — earning multiple GitHub achievements through quality pull requests and active collaboration. 175+ contributions and counting.",
     icon: Code,
     type: "career" as const,
   },
   {
     year: "2025",
-    title: "Built CitizenConnect (Course Project)",
-    org: "React · TypeScript · Firebase",
-    description: "Designed and developed a civic engagement platform as a university course project — complete with role-based auth, real-time features, and a clean UI. My first full-stack app.",
+    title: "Shipped CitizenConnect",
+    org: "React · TypeScript · Full Stack",
+    description: "Built a civic engagement platform from scratch with role-based auth, real-time features, and an analytics dashboard. My first production-ready full-stack application.",
     icon: Briefcase,
     type: "career" as const,
   },
   {
     year: "2025",
-    title: "Published on Medium",
-    org: "Technical Writing",
-    description: "Wrote a data-driven guide on cracking COMSATS admissions. My first step into technical writing — sharing what I learn as I go.",
+    title: "Published First Article on Medium",
+    org: "Technical Writing · 10K+ Readers",
+    description: "Wrote a strategic guide on cracking COMSATS admissions that reached thousands of students. My first step into sharing knowledge through writing.",
     icon: Award,
     type: "career" as const,
   },
   {
     year: "2026",
-    title: "Exploring Design Patterns & Clean Architecture",
-    org: "COMSATS University · SP26-OOP",
-    description: "Deep-diving into SOLID principles, Gang of Four patterns, and clean architecture in Java & C++. Building the engineering mindset that lasts beyond any single framework.",
+    title: "Deep-Diving into Design Patterns",
+    org: "SOLID · Gang of Four · Clean Architecture",
+    description: "Going beyond syntax — studying design patterns and architectural principles in Java & C++ to build the engineering mindset that outlasts any framework.",
     icon: Code,
     type: "education" as const,
   },
   {
     year: "2026",
-    title: "Building This Portfolio",
+    title: "Launched This Portfolio",
     org: "React · TypeScript · Framer Motion",
-    description: "Designed and built this portfolio from scratch — not a template. Custom animations, 3D elements, and a personal brand that reflects who I am as an engineer.",
+    description: "Designed and developed this portfolio from scratch — no templates. Custom animations, 3D visuals, and a personal brand built to reflect my engineering identity.",
     icon: Rocket,
     type: "career" as const,
   },
 ];
-
 
 const TimelineSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="timeline" className="section-padding relative" ref={ref}>
+    <section id="journey" className="section-padding relative" ref={ref}>
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -72,12 +71,11 @@ const TimelineSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Journey</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            The <span className="gradient-text">story so far</span>
+            My <span className="gradient-text">Path So Far</span>
           </h2>
         </motion.div>
 
         <div className="relative">
-          {/* Vertical line */}
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-primary/30 md:-translate-x-px" />
 
           {timeline.map((item, i) => {
@@ -94,7 +92,6 @@ const TimelineSection = () => {
                   isLeft ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                {/* Content card */}
                 <div className={`flex-1 ml-16 md:ml-0 ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                   <div className="group relative overflow-hidden rounded-2xl border border-primary/20 bg-card/50 backdrop-blur-sm p-6 hover:border-primary/40 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.15)] transition-all duration-500">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -112,7 +109,6 @@ const TimelineSection = () => {
                   </div>
                 </div>
 
-                {/* Center icon */}
                 <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10">
                   <motion.div
                     whileHover={{ scale: 1.15 }}
@@ -122,7 +118,6 @@ const TimelineSection = () => {
                   </motion.div>
                 </div>
 
-                {/* Spacer for other side */}
                 <div className="hidden md:block flex-1" />
               </motion.div>
             );

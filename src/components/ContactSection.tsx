@@ -55,7 +55,7 @@ const ContactSection = () => {
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-display">Contact</p>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display">
-            Let's <span className="gradient-text">work together</span>
+            Get in <span className="gradient-text">Touch</span>
           </h2>
         </motion.div>
 
@@ -67,9 +67,9 @@ const ContactSection = () => {
             className="lg:col-span-2 space-y-8"
           >
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Whether you're a startup looking for a full-stack engineer, a company 
-              seeking an intern who ships from day one, or a fellow builder with a 
-              wild idea — I'd love to hear from you. Let's create something remarkable.
+              Whether you're a company looking for an engineering intern, a team seeking 
+              a developer who ships from day one, or a fellow builder with an idea — 
+              I'd love to hear from you.
             </p>
 
             <div className="space-y-4">
