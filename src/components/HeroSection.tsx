@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Scene3D from "./Scene3D";
 import TextReveal from "./TextReveal";
 import MagneticButton from "./MagneticButton";
+import GradientMeshBackground from "./GradientMeshBackground";
 import { ArrowDown, Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const HeroSection = () => {
