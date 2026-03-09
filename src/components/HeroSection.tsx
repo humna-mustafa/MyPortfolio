@@ -2,18 +2,14 @@ import { motion } from "framer-motion";
 import Scene3D from "./Scene3D";
 import TextReveal from "./TextReveal";
 import MagneticButton from "./MagneticButton";
+import GradientMeshBackground from "./GradientMeshBackground";
 import { ArrowDown, Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden mesh-bg pt-32 md:pt-36">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 md:pt-36">
+      <GradientMeshBackground />
       <Scene3D />
-
-      {/* Noise overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-[1]" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
-        backgroundRepeat: "repeat",
-      }} />
 
       {/* Main content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex-1 flex flex-col items-center justify-center">
