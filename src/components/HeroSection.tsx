@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[1fr,0.8fr] gap-12 lg:gap-20 items-center">
           {/* Left Column - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
