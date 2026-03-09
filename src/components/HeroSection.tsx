@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[1fr,0.8fr] gap-12 lg:gap-20 items-center">
           {/* Left Column - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -123,21 +123,21 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="relative lg:justify-self-end"
+            className="relative lg:justify-self-end w-full"
           >
-            <div className="relative w-full max-w-md aspect-square">
+            <div className="relative w-full max-w-lg mx-auto lg:mx-0 aspect-square">
               {/* Decorative background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-2xl blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-3xl blur-3xl" />
               
               {/* Profile picture container */}
-              <div className="relative w-full h-full rounded-2xl border-2 border-border bg-card/50 backdrop-blur-sm overflow-hidden">
+              <div className="relative w-full h-full rounded-3xl border-2 border-border bg-card/50 backdrop-blur-sm overflow-hidden shadow-xl">
                 {/* Placeholder with professional styling */}
                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted/30 to-muted/10">
-                  <div className="text-center space-y-3">
-                    <div className="w-24 h-24 mx-auto rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-primary">HM</span>
+                  <div className="text-center space-y-4">
+                    <div className="w-32 h-32 mx-auto rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center">
+                      <span className="text-5xl font-bold text-primary">HM</span>
                     </div>
-                    <p className="text-sm text-muted-foreground">Profile Photo</p>
+                    <p className="text-base text-muted-foreground">Profile Photo</p>
                   </div>
                 </div>
                 {/* Replace the placeholder div above with your actual image:
@@ -150,7 +150,7 @@ const HeroSection = () => {
               </div>
               
               {/* Decorative corner accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
             </div>
           </motion.div>
         </div>
